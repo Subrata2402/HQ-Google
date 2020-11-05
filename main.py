@@ -152,7 +152,7 @@ class Bot(discord.Client):
 
         highest = max(lst_scores)
         gif_ans = 'https://cdn.discordapp.com/attachments/716879425655799858/726460742924107897/unnamed.gif'
-        not_answer = ' '
+        not_answer = '<a:redload:772439692411011073>'
         lowest = min(lst_scores)
         answer = lst_scores.index(highest)+1
         #best_answer= "⚠️"
@@ -196,7 +196,6 @@ class Bot(discord.Client):
          #       two_cheak = ":x:"
        #     if answer == 1:
          #       three_cheak = ":x:"
-          #only edit here
         
         self.embed.set_field_at(0, name="**__Erased__**", value=not_answer, inline=True) 
 
@@ -210,7 +209,7 @@ class Bot(discord.Client):
         print("Connected to discord.")
         print("User: " + self.user.name)
         print("ID: " + str(self.user.id))
-        log=self.get_channel(771771117135593543)
+        log=self.get_channel(77177111713553543)
         await log.send("> **HQ Eraser Bot is Updated** ✅")
 
         await self.clear_results()
