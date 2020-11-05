@@ -152,7 +152,7 @@ class Bot(discord.Client):
 
         highest = max(lst_scores)
         gif_ans = 'https://cdn.discordapp.com/attachments/716879425655799858/726460742924107897/unnamed.gif'
-        not_answer = '<a:redload:772439692411011073>'
+        not_answer = '**Option =** <a:redload:772439692411011073>'
         lowest = min(lst_scores)
         answer = lst_scores.index(highest)+1
         #best_answer= "⚠️"
