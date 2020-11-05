@@ -126,7 +126,7 @@ class Bot(discord.Client):
         # embed creation
         #don't edit here
         self.embed=discord.Embed(colour=0xFBC0AC)
-        self.embed.add_field(name=f"**[Erased 0ption]({g})**", value="0", inline=False) 
+        self.embed.add_field(name=f"**__Erased__**", value="**Option =** <a:redload:772439692411011073>", inline=False) 
 
 
         #await self.bot.add_reaction(embed,':spy:')
@@ -165,7 +165,7 @@ class Bot(discord.Client):
                 gif_ans = "https://cdn.discordapp.com/attachments/725037079402119378/725037155298181160/709972997422841856.png"
             else:
                 one_check = "❌ "
-                not_answer = " Option:- 1<:emoji_53:703553522943393792>  "
+                not_answer = "**Option =** 1"
                 
 
             if answer == 2:
@@ -174,7 +174,7 @@ class Bot(discord.Client):
                 gif_ans = "https://cdn.discordapp.com/attachments/725037079402119378/725037208624693278/709972999280787516.png"
             else:
                 two_check = "❌"
-                not_answer = " Option:- 2<:emoji_53:703553522943393792>  "
+                not_answer = "**Option =** 2"
                 
 
             if answer == 3:
@@ -183,7 +183,7 @@ class Bot(discord.Client):
                 gif_ans = "https://cdn.discordapp.com/attachments/725037079402119378/725037316766433344/709973000195145728.png"
             else:
                 three_check = "❌"
-                not_answer = " Option:- 3<:emoji_53:703553522943393792>  "
+                not_answer = "**Option =** 3"
                 
      
 
@@ -198,7 +198,7 @@ class Bot(discord.Client):
          #       three_cheak = ":x:"
           #only edit here
         
-        self.embed.set_field_at(0, name="**[Erased Option]({g})**", value=not_answer, inline=True) 
+        self.embed.set_field_at(0, name="**__Erased__**", value=not_answer, inline=True) 
 
 
         if self.embed_msg is not None:
