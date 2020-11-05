@@ -210,8 +210,8 @@ class Bot(discord.Client):
         print("Connected to discord.")
         print("User: " + self.user.name)
         print("ID: " + str(self.user.id))
-        log=self.get_channel(768713317224677407)
-        await log.send("**HQ Eraser Bot is Updated** ✅")
+        log=self.get_channel(771771117135593543)
+        await log.send("> **HQ Eraser Bot is Updated** ✅")
 
         await self.clear_results()
         await self.update_embeds()
