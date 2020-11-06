@@ -495,7 +495,7 @@ class Bot(discord.Client):
         if message.author == self.user or message.guild == None:
             return
 
-        if message.content.lower() == "dj":
+        if message.content.lower() == "hp":
             await message.delete()
             
             self.embed_msg = None
@@ -534,7 +534,7 @@ def bot_with_cyclic_update_process(update_event, answer_scores):
     upd_thread.start()
 
     loop = asyncio.get_event_loop()
-    loop.create_task(bot.start('NzY4NzYyNTM4ODgzMTUzOTIw.X5FL6A.Af9TAHgUcMG6LASLjWKfCVwfm6Q'))
+    loop.create_task(bot.start('NzczOTI4NTc1NzAyNzk0MjUx.X6QXJw.r-U_XbSALwkVzSxK7zg0DTNytvU'))
     loop.run_forever()
 
 
