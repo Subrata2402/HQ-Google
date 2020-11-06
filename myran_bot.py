@@ -199,6 +199,7 @@ class Bot(discord.Client):
 
             if answer == 3:
                 print(3,'{}'.format(lst_scores[3],))
+                #not_answer = " :three: <:galat:695864984193859634> "
          
         if lowest < 0:
             if answer == 1:
@@ -207,7 +208,7 @@ class Bot(discord.Client):
                 not_answer = "Erase:- 1️⃣"
             if answer == 3:
                 not_answer = "Erase:- 3️⃣"
-                #not_answer = " :three: <:galat:695864984193859634> "          
+          
         #This is myran
         #Myran can do enything
         #See Myran will make the hq Eraser Bot with cool look & work
