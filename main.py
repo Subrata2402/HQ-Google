@@ -203,13 +203,13 @@ class Bot(discord.Client):
          #       three_cheak = ":x:"
           #only edit here
         self.embed=discord.Embed(title="** ALL IN ONE Crowd Searching<a:OP_Google:716229760883228733>**",description =f"**__Answer ❶__\n** [{lst_scores[0]}]({g}){one_check}\n**__Answer ❷__\n** [{lst_scores[1]}]({g}){two_check}\n**__Answer ❸__\n** [{lst_scores[2]}]({g}){three_check}",color=0x000000)
-        #self.embed.set_field_at(0, name="**[0ption 1]({g})**", value=f"[➤{lst_scores[0]}]({g}){one_check}")
-        #self.embed.set_field_at(1, name="**[0ption 2]({g})**", value=f"[➤{lst_scores[1]}]({g}){two_check}")
-        #self.embed.set_field_at(2, name="**[0ption 3]({g})**", value=f"[➤{lst_scores[2]}]({g}){three_check}")
+        self.embed.set_field_at(0, name="**[0ption 1]({g})**", value=f"[➤{lst_scores[0]}]({g}){one_check}")
+        self.embed.set_field_at(1, name="**[0ption 2]({g})**", value=f"[➤{lst_scores[1]}]({g}){two_check}")
+        self.embed.set_field_at(2, name="**[0ption 3]({g})**", value=f"[➤{lst_scores[2]}]({g}){three_check}")
         self.embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/718842902205300847/750673733915639848/749914188742393876.gif")
         
         self.embed.set_footer(text='Answer status : connected')
-        #self.embed.set_field_at(3, name="**[Erased Option]({g})**", value=not_answer, inline=True) 
+        self.embed.set_field_at(3, name="**[Erased Option]({g})**", value=not_answer, inline=True) 
 
 
         if self.embed_msg is not None:
