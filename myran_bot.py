@@ -130,7 +130,6 @@ class Bot(discord.Client):
         #self.embed.add_field(name="**Correct Answer**", value="0", inline=False)
         self.embed.add_field(name="**Option**", value="0", inline=False)
         self.embed.set_thumbnail(url='https://cdn.discordapp.com/attachments/703506811277410346/705486516394262558/703812928662667266.png')
-        self.embed.set_footer(text='© </> with ❤️ by Myran#6648',icon_url='https://cdn.discordapp.com/avatars/704854266300596244/5a266f75743a1bbd852f1e37e42aaceb.png?size=256')
         #print(answer_scores)
         #print(update_scores)
         
@@ -203,9 +202,9 @@ class Bot(discord.Client):
          
         if lowest < 0:
             if answer == 1:
-                not_answer = "Ersae:- 1️⃣"
+                not_answer = "Ersae:- 2️⃣"
             if answer == 2:
-                not_answer = "Erase:- 2️⃣"
+                not_answer = "Erase:- 1️⃣"
             if answer == 3:
                 not_answer = "Erase:- 3️⃣"
                 #not_answer = " :three: <:galat:695864984193859634> "          
