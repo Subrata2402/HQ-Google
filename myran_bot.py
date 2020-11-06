@@ -162,31 +162,7 @@ class Bot(discord.Client):
         lowest = min(lst_scores)
         answer = lst_scores.index(highest)+1
         #global wrong             
-
-        #if highest > 0:
-            #if answer == 1:
-                #one_check = ""
-                #right_answer = ""
-            #else:
-                #one_check = ""
-                #not_answer = ""
-
-            #if answer == 2:
-                #two_check = " "
-                #right_answer = ""
-            #else:
-                #one_check = ""
-                #not_answer = ""
-
-            #if answer == 3:
-                #three_check = "  "
-                #right_answer = ""
-            #else:
-                #one_check = ""
-                #not_answer = ""
-     
-
-            
+ 
 
         if highest > 0:
             if answer == 1:
