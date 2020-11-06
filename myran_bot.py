@@ -191,15 +191,15 @@ class Bot(discord.Client):
         if highest > 0:
             if answer == 1:
                 print(1,'{}'.format(lst_scores[1],))
-                #not_answer = " :one: <:galat:695864984193859634> "
+                not_answer = " :one: <:galat:695864984193859634> "
 
             if answer == 2:
                 print(2,'{}'.format(lst_scores[2],)) 
-                #not_answer = " :two: <:galat:695864984193859634> "
+                not_answer = " :two: <:galat:695864984193859634> "
 
             if answer == 3:
                 print(3,'{}'.format(lst_scores[3],))
-                #not_answer = " :three: <:galat:695864984193859634> "
+                not_answer = " :three: <:galat:695864984193859634> "
          
         if lowest < 0:
             if answer == 1:
