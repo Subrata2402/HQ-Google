@@ -161,21 +161,7 @@ class Bot(discord.Client):
         not_answer = 'Erase:- <a:redload:692937850559135825>'
         lowest = min(lst_scores)
         answer = lst_scores.index(highest)+1
-        #global wrong             
- 
-
-        if highest > 0:
-            if answer == 1:
-                print(1,'{}'.format(lst_scores[1],))
-                not_answer = " :one: <:galat:695864984193859634> "
-
-            if answer == 2:
-                print(2,'{}'.format(lst_scores[2],)) 
-                not_answer = " :two: <:galat:695864984193859634> "
-
-            if answer == 3:
-                print(3,'{}'.format(lst_scores[3],))
-                not_answer = " :three: <:galat:695864984193859634> "
+        #global wrong        
          
         if lowest < 0:
             if answer == 1:
