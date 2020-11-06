@@ -165,9 +165,9 @@ class Bot(discord.Client):
          
         if lowest < 0:
             if answer == 1:
-                not_answer = "Ersae:- 2️⃣"
-            if answer == 2:
                 not_answer = "Erase:- 1️⃣"
+            if answer == 2:
+                not_answer = "Erase:- 2️⃣"
             if answer == 3:
                 not_answer = "Erase:- 3️⃣"
           
