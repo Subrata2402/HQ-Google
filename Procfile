@@ -1,1 +1,1 @@
-worker: Eraser.py
+worker: python myran_bot.py
