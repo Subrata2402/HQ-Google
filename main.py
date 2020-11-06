@@ -129,7 +129,7 @@ class Bot(discord.Client):
         self.embed.add_field(name=f"**[0ption 1]({g})**", value=f"[0]({g})", inline=False)
         self.embed.add_field(name=f"**[0ption 2]({g})**", value=f"[0]({g})", inline=False)
         self.embed.add_field(name=f"**[0ption 3]({g})**", value=f"[0]({g})", inline=False)
-        self.embed.set_field(name="Best Answer :", value="🤔", inline=False)
+        self.embed.set_field(name=f"Best Answer :", value="🤔", inline=False)
         self.embed.set_footer(text='Bot Status : Connected')
         self.embed.add_field(name=f"**Erased 0ption**", value="🤔", inline=False) 
 
