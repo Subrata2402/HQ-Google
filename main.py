@@ -129,9 +129,9 @@ class Bot(discord.Client):
         self.embed.add_field(name=f"**[0ption 1]({g})**", value=f"[0]({g})", inline=False)
         self.embed.add_field(name=f"**[0ption 2]({g})**", value=f"[0]({g})", inline=False)
         self.embed.add_field(name=f"**[0ption 3]({g})**", value=f"[0]({g})", inline=False)
-        #self.embed.set_field(name="Best Answer :", value=best_answer)
+        self.embed.set_field(name="Best Answer :", value=🤔, inline=False)
         self.embed.set_footer(text='Bot Status : Connected')
-        self.embed.add_field(name=f"**[Erased 0ption]({g})**", value="0", inline=False) 
+        self.embed.add_field(name=f"**Erased 0ption**", value="🤔", inline=False) 
 
 
         #await self.bot.add_reaction(embed,':spy:')
@@ -207,9 +207,9 @@ class Bot(discord.Client):
         self.embed.set_field_at(1, name="**[0ption 2]({g})**", value=f"[➤{lst_scores[1]}]({g}){two_check}")
         self.embed.set_field_at(2, name="**[0ption 3]({g})**", value=f"[➤{lst_scores[2]}]({g}){three_check}")
         self.embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/718842902205300847/750673733915639848/749914188742393876.gif")
-        
         self.embed.set_footer(text='Answer status : connected')
-        self.embed.set_field_at(3, name="**[Erased Option]({g})**", value=not_answer, inline=True) 
+        self.embed.set_field_at(3, name="Best Answer :", value=best_answer)
+        self.embed.set_field_at(4, name="**Erased Option**", value=not_answer, inline=True) 
 
 
         if self.embed_msg is not None:
