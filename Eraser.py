@@ -241,9 +241,7 @@ class Bot(discord.Client):
                 await self.update_embeds()
                 self.embed_msg = \
                     await message.channel.send('',embed=self.embed)
-                #await self.embed_msg.add_reaction("")
-                #await self.embed_msg.add_reaction("")
-                #await self.embed_msg.add_reaction("")
+                #await self.embed_msg.add_reaction("🎉”)
                 self.embed_channel_id = message.channel.id
             else:
                 await message.channel.send("**Fuck!** You Not Have permission To Use This **cmd!** :stuck_out_tongue_winking_eye:")
