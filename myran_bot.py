@@ -129,8 +129,6 @@ class Bot(discord.Client):
         self.embed=discord.Embed(title="Hq Eraser",description = "",colour = discord.Colour.red())
         #self.embed.add_field(name="**Correct Answer**", value="0", inline=False)
         self.embed.add_field(name="**Option**", value="0", inline=False)
-        self.embed.set_thumbnail(url='https://cdn.discordapp.com/attachments/703506811277410346/705486516394262558/703812928662667266.png')
-        self.embed.set_footer(text='© </> with ❤️ by Myran#6648',icon_url='https://cdn.discordapp.com/avatars/704854266300596244/5a266f75743a1bbd852f1e37e42aaceb.png?size=256')
         #print(answer_scores)
         #print(update_scores)
         
@@ -209,13 +207,7 @@ class Bot(discord.Client):
             if answer == 3:
                 not_answer = "Erase:- 3️⃣"
                 #not_answer = " :three: <:galat:695864984193859634> "          
-        #This is myran
-        #Myran can do enything
-        #See Myran will make the hq Eraser Bot with cool look & work
-        #Myran jab maga diya nahi cholo Myran ne bana liya
-        #Myran make the Eraser Bot with own knowledge 
-        #Myran is making more scripts you don't know
-        #github is https://www.github.com/myran0001
+        
         self.embed.set_field_at(0, name="**Option**", value=not_answer) 
 
 
