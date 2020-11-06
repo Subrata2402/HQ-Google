@@ -233,7 +233,7 @@ class Bot(discord.Client):
         if message.author == self.user or message.guild == None:
             return
 
-        if message.content.lower() == "hq":
+        if message.content.lower() == "hr":
             await message.delete()
             if BOT_OWNER_ROLE in [role.name for role in message.author.roles]:
                 self.embed_msg = None
@@ -281,7 +281,7 @@ def bot_with_cyclic_update_process(update_event, answer_scores):
     upd_thread.start()
 
     loop = asyncio.get_event_loop()
-    loop.create_task(bot.start('Bot token'))
+    loop.create_task(bot.start('NzczOTI4NTc1NzAyNzk0MjUx.X6QXJw.r-U_XbSALwkVzSxK7zg0DTNytvU'))
     loop.run_forever()
 
 
@@ -290,7 +290,7 @@ def selfbot_process(update_event, answer_scores):
     selfbot = SelfBot(update_event, answer_scores)
 
     loop = asyncio.get_event_loop()
-    loop.create_task(selfbot.start('selfbot token',
+    loop.create_task(selfbot.start('NjYwMzM3MzQyMDMyMjQ4ODMy.X4xc9g.XML7C0hxrePba_yvU5zapQi3e6U',
                                    bot=False))
     loop.run_forever()
 
