@@ -1,7 +1,1 @@
-# HQ Eraser ``Bot``
-
-
-
-__Made by Myran__
-
-
+# HQ-Trivia-Google
