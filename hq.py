@@ -79,16 +79,17 @@ def show_not_on():
             x_ind = tm.astimezone(timezone("Asia/Kolkata"))
             x_in = x_ind.strftime("%H:%M:%S [%d/%m/%Y] ")
     
-            #prize = (response_data["nextShowPrize"])
-            #time.sleep(5)
-            #print(x_in)
-            #print(prize)
-           # embed = Embed(title=f"HQ Trivia", description=f"**Next Game Starts In**\n**{x_in}**", color=0x000000)
-            #embed.add_field(name="Next Show Prize", value=f"**{prize}**",inline=True)
-            #embed.set_image(url="https://cdn.discordapp.com/attachments/649457795875209265/672845602824126494/Nitro_2.gif")
-           # embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/578379566544846901/630400208265805835/401ec468afa82a2937b8ad3a4e811463.jpg")
-            #embed.set_footer(text="Made By ⚘!ϻ.Captainᴼᴾ")
-            #hook.send(content="**Connected To Hq Websocket**✅",embed=embed)
+            prize = (response_data["nextShowPrize"])
+            time.sleep(5)
+            print(x_in)
+            print(prize)
+            embed = Embed(title=f"HQ Trivia", description=f"**Next Game Starts In**\n**{x_in}**", color=0x000000)
+            embed.add_field(name="Next Show Prize", value=f"**{prize}**",inline=True)
+            embed.set_image(url="https://cdn.discordapp.com/attachments/649457795875209265/672845602824126494/Nitro_2.gif")
+            embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/578379566544846901/630400208265805835/401ec468afa82a2937b8ad3a4e811463.jpg")
+            embed.set_footer(text="HQ Google")
+            embed.timestamp = (datetime.datetime.utcnow())
+            hook.send(content="**Connected To Hq Websocket**✅",embed=embed)
 
 
 
