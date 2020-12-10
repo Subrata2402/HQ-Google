@@ -198,9 +198,9 @@ def connect_websocket(socket_url, auth_token):
             elif message_data["type"] == "gameSummary":
                 winn = message_data['numWinners']
                 prizeMoney = str(message_data["winners"][0]["prize"])
-                embed=discord.Embed(title="**__Game Summary !__**",description="",color=0x00FBFF)
-                embed.add_field(name="**● Payout :**", value=f"**➨ {prizeMoney}**", inline=True)
-                embed.add_field(name="**● Total Winners :**", value=f"**➨ {winn} 🎉**", inline=True)
+                embed=discord.Embed(title="**__Game Summary !__**",description=f"**● Payout: {prizeMoney}\n● Total Winners: {winn}\n● Prize Money: $2,500**",color=0x00FBFF)
+                #embed.add_field(name="**● Payout :**", value=f"**➨ {prizeMoney}**", inline=True)
+                #embed.add_field(name="**● Total Winners :**", value=f"**➨ {winn} 🎉**", inline=True)
                # embed.add_field(name="*● Prize Money :**", value=f"**5000$**", inline=True)
                 embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/737764195743039488/737768505935659178/giphy1.gif")
                 embed.set_footer(text=f"HQ Google | Subrata#3297", icon_url="")
