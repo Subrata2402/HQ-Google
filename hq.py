@@ -19,9 +19,9 @@ from dhooks import Webhook, Embed
 import aniso8601
 
 
-webhook_url="https://discordapp.com/api/webhooks/776439308605194253/EwBKseyXxeD152Zo-xLBk8TxyTZk4TPg_HrHcXM32uaM2c5whS3AlhEE-ZWEKjBm_d0f"
+webhook_url="https://discordapp.com/api/webhooks/786641497952223272/gjkGbLeABZ3151EwGYdmiTJoHu70J6tMkc6c0fAUtJ29T9sD0tVbVbtZblbHJ7gKLMO4"
 
-we="https://discordapp.com/api/webhooks/776439308605194253/EwBKseyXxeD152Zo-xLBk8TxyTZk4TPg_HrHcXM32uaM2c5whS3AlhEE-ZWEKjBm_d0f"
+we="https://discordapp.com/api/webhooks/786641497952223272/gjkGbLeABZ3151EwGYdmiTJoHu70J6tMkc6c0fAUtJ29T9sD0tVbVbtZblbHJ7gKLMO4"
 
 
 try:
@@ -84,7 +84,7 @@ def show_not_on():
             print(x_in)
             print(x_indi)
             print(prize)
-            embed = Embed(title="**__Next Game Details !__**", description=f"**📆〢Date — {x_indi}\n⏰〢Time — {x_in} [I.S.T]\n💰〢Prize Money — {prize}** 🎉", color=0xff5733)
+            embed = Embed(title="**__NEXT GAME DETAILS !__**", url="www.google.com", description=f"**Date — {x_indi}\nTime — {x_in} [I.S.T]\nPrize Money — {prize}**", color=0x000000)
             embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/765632168650866750/770460404714962974/IMG_20200920_211614.jpg")
             #embed.set_footer(text="HQ Trivia Show | Subrata#3297", icon_url="")
             hook.send(embed=embed)
@@ -133,10 +133,13 @@ def connect_websocket(socket_url, auth_token):
                 answers = [unidecode(ans["text"]) for ans in message_data["answers"]]
                 print(f"\n{answers[0]}\n{answers[1]}\n{answers[2]}\n")
                 real_question = str(question).replace(" ","+")
-                google_query = "https://google.com/search?q="+real_question             
-                embed=discord.Embed(title=f"**{qcnt}. {question}**",description=f"**1. {answers[0]}\n2. {answers[1]}\n3. {answers[2]}**",color=0xff5733)
-                embed.set_footer(text="Made By Subrata#3297", icon_url="")
-                embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/765632168650866750/770460404714962974/IMG_20200920_211614.jpg")
+                google_query = "https://google.com/search?q="+real_question          
+                embed=discord.Embed(title=f"**Question No. {qcnt} out of {Fullcnt}**",  description=f"**[{question}]({google_query})**", color=0xff5733)
+                embed.add_field(name="**Option -１**", value=f"**[{answers[0]}]({google_query})**", inline=True)
+                embed.add_field(name="**Option -２**", value=f"**[{answers[1]}]({google_query})**", inline=True)
+                embed.add_field(name="**Option -３**", value=f"**[{answers[2]}]({google_query})**", inline=True)
+                embed.set_footer(text="HQ Google | Subrata#3297", icon_url="")
+                #embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/578379566544846901/630400208265805835/401ec468afa82a2937b8ad3a4e811463.jpg")
                 hook.send(embed=embed)
                 option1=f"{answers[0]}"
                 option2=f"{answers[1]}"
@@ -189,7 +192,7 @@ def connect_websocket(socket_url, auth_token):
                 #hook.send(f"**Correct Answer -- {correct}**")
                 #hook.send(f"**Advancing -- {advancing}      Eliminating --- {eliminated}**")
                 embd=discord.Embed(title="**__Answer Stats !__** ",description=f"**● Correct Answer: {correct}** <:emoji_13:772843132093202443>\n**● Advancing Players: {advancing}**\n**● Eliminated  Players: {eliminated}**",color=0x4286f4)
-                embd.set_footer(text=f"Made by Subrata#3297", icon_url="")
+                embd.set_footer(text=f"HQ Google | Subrata#3297", icon_url="")
                 hook.send(embed=embd)
 
             elif message_data["type"] == "gameSummary":
@@ -200,7 +203,7 @@ def connect_websocket(socket_url, auth_token):
                 embed.add_field(name="**● Total Winners :**", value=f"**➨ {winn} 🎉**", inline=True)
                # embed.add_field(name="*● Prize Money :**", value=f"**5000$**", inline=True)
                 embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/737764195743039488/737768505935659178/giphy1.gif")
-                embed.set_footer(text=f"Made By Subrata#3297", icon_url="")
+                embed.set_footer(text=f"HQ Google | Subrata#3297", icon_url="")
                 hook.send(embed=embed)
 
 
