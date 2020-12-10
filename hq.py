@@ -86,7 +86,7 @@ def show_not_on():
             print(prize)
             embed = Embed(title="**__NEXT GAME DETAILS !__**", url="www.google.com", description=f"**Date — {x_indi}\nTime — {x_in} [I.S.T]\nPrize Money — {prize}**", color=0x000000)
             embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/765632168650866750/770460404714962974/IMG_20200920_211614.jpg")
-            #embed.set_footer(text="HQ Trivia Show | Subrata#3297", icon_url="")
+            embed.set_footer(text="HQ Trivia Show | Subrata#3297", icon_url="")
             hook.send(embed=embed)
 
 
