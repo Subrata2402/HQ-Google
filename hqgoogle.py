@@ -65,7 +65,6 @@ def show_not_on():
         response_data = requests.get(main_url).json()
     except:
         print("Server response not JSON, retrying...")
-        time.sleep(1)
 
     logging.info(response_data)
 
