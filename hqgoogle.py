@@ -65,6 +65,7 @@ def show_not_on():
         response_data = requests.get(main_url).json()
     except:
         print("Server response not JSON, retrying...")
+        time.sleep(1)
 
     logging.info(response_data)
 
@@ -81,6 +82,7 @@ def show_not_on():
             x_i = x_ind.strftime("%H:%M")
     
             prize = (response_data["nextShowPrize"])
+            time.sleep(1200)
             print(x_in)
             print(prize)
             embed=discord.Embed(title=f"➜〢Date – {x_in}\n➜〢Time – {x_i}AM\n➜〢Prize Money – {prize}", color=0x000000)
@@ -256,3 +258,4 @@ while True:
 
     else:
         show_not_on()
+        time.sleep(72000)
