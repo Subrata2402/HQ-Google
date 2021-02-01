@@ -20,9 +20,9 @@ import aniso8601
 from time import sleep
 
 
-webhook_url="https://discordapp.com/api/webhooks/788848429987397722/2Sa1RpL0k0tbLUwe5JBegRHZ3XvIBMVte9Kc621N76nMclvC55CcNEbyVvAv4sdSrTYs"
+webhook_url="https://discordapp.com/api/webhooks/786641497952223272/gjkGbLeABZ3151EwGYdmiTJoHu70J6tMkc6c0fAUtJ29T9sD0tVbVbtZblbHJ7gKLMO4"
 
-we="https://discordapp.com/api/webhooks/805617639585480735/o6dKPMWro0o8mphA7iu3gB7ISNMP2gXS-4AVQu2n7V-1zVNm9NI2kDYAlFchpA87SgTG"
+we="https://discordapp.com/api/webhooks/786641497952223272/gjkGbLeABZ3151EwGYdmiTJoHu70J6tMkc6c0fAUtJ29T9sD0tVbVbtZblbHJ7gKLMO4"
 
 
 try:
