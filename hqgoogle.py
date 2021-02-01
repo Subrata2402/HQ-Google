@@ -132,11 +132,13 @@ def connect_websocket(socket_url, auth_token):
                 qcnt = message_data['questionNumber']
                 Fullcnt = message_data['questionCount']
 
-                print(f"\nQuestion number {qcnt} out of {Fullcnt}\n{question}")
+                #print(f"\nQuestion number {qcnt} out of {Fullcnt}\n{question}")
                 answers = [unidecode(ans["text"]) for ans in message_data["answers"]]
-                print(f"\n{answers[0]}\n{answers[1]}\n{answers[2]}\n")
+                #print(f"\n{answers[0]}\n{answers[1]}\n{answers[2]}\n")
                 real_question = str(question).replace(" ","+")
-                google_query = "https://google.com/search?q="+real_question             
+                google_query = "https://google.com/search?q="+real_question
+                print(message_data)
+                hook.send(message_data)
                 embed=discord.Embed(title=f"**Question No. {qcnt} out of {Fullcnt}**",  description=f"**[{question}]({google_query})**", color=0xff5733)
                 embed.add_field(name="**Option -１**", value=f"**[{answers[0]}]({google_query})**", inline=True)
                 embed.add_field(name="**Option -２**", value=f"**[{answers[1]}]({google_query})**", inline=True)
@@ -152,12 +154,15 @@ def connect_websocket(socket_url, auth_token):
                 soup = BeautifulSoup(r.text, 'html.parser')
                 response = soup.find_all("span", class_="st")
                 res = str(r.text)
+                hook.send(res)
                 countoption1 = res.count(option1)
                 countoption2 = res.count(option2)
                 countoption3 = res.count(option3)
                 maxcount = max(countoption1, countoption2, countoption3)
                 sumcount = countoption1+countoption2+countoption3
                 print("/n")
+                print(r)
+                print(res)
                 if countoption1 == maxcount:
                 	print(f"A {answers[0]}")
                 elif countoption2 == maxcount:
@@ -168,7 +173,7 @@ def connect_websocket(socket_url, auth_token):
                     embed2=discord.Embed(title=f"**__Google Search Results !__**", description=f"**１. {answers[0]}:** **{countoption1}** <:emoji_13:772843132093202443>\n**２. {answers[1]}:** **{countoption2}**\n**３. {answers[2]}:** **{countoption3}**", color=0x00FBFF)
                     embed2.set_footer(text="HQ Google | Subrata#3297")
                     hook.send(embed=embed2)
-                    hook.send("dt")
+                    #hook.send("dt")
                     sleep(10)
                     embed3=discord.Embed(title="⏰ Time's Up!", color=0x00FBFF) 
                     hook.send(embed=embed3)
@@ -176,7 +181,7 @@ def connect_websocket(socket_url, auth_token):
                     embed2=discord.Embed(title=f"**__Google Search Results !__**", description=f"**１. {answers[0]}:** **{countoption1}**\n**２. {answers[1]}:** **{countoption2}** <:emoji_13:772843132093202443>\n**３. {answers[2]}:** **{countoption3}**", color=0x00FBFF)
                     embed2.set_footer(text="HQ Google | Subrata#3297")
                     hook.send(embed=embed2)
-                    hook.send("dt")
+                    #hook.send("dt")
                     sleep(10)
                     embed3=discord.Embed(title="⏰ Time's Up!", color=0x00FBFF) 
                     hook.send(embed=embed3)
@@ -184,7 +189,7 @@ def connect_websocket(socket_url, auth_token):
                     embed2=discord.Embed(title=f"**__Google Search Results !__**", description=f"**１. {answers[0]}:** **{countoption1}**\n**２. {answers[1]}:** **{countoption2}**\n**３. {answers[2]}:** **{countoption3}** <:emoji_13:772843132093202443>", color=0x00FBFF)
                     embed2.set_footer(text="HQ Google | Subrata#3297")
                     hook.send(embed=embed2)
-                    hook.send("dt")
+                    #hook.send("dt")
                     sleep(10)
                     embed3=discord.Embed(title="⏰ Time's Up!", color=0x00FBFF) 
                     hook.send(embed=embed3)
@@ -203,10 +208,8 @@ def connect_websocket(socket_url, auth_token):
                 nextcheck = message_data['nextCheckpointIn']
                 ans = (5000)/(int(advancing))
                 payout = float("{:.2f}".format(ans))
-
-                print(colored(correct, "blue"))
-                print(advancing)
-                print(eliminated)
+                print(message_data)
+                hook.send(message_data)
                 embd=discord.Embed(title=f"Question {qcnt} of {Fullcnt}**",  description=f"**[{question}]({google_query})**\n**Correct Answer: {correct}** <:emoji_13:772843132093202443>", color=0x4286f4)
                 embd.add_field(name="**__Status !__**", value=f"**● Advancing Players: {advancing}**\n**● Eliminated  Players: {eliminated}\n● Current Payout: ${payout}**", inline=True)
                 embd.set_footer(text=f"HQ Google | Subrata#3297", icon_url="")
@@ -215,6 +218,8 @@ def connect_websocket(socket_url, auth_token):
             elif message_data["type"] == "gameSummary":
                 winn = message_data['numWinners']
                 prizeMoney = str(message_data["winners"][0]["prize"])
+                print(message_data)
+                hook.send(message_data)
                 embed=discord.Embed(title="**__Game Summary !__**",description=f"**● Payout: {prizeMoney}\n● Total Winners: {winn}\n● Prize Money: $5,000**",color=0x00FBFF)
                 #embed.add_field(name="**● Payout :**", value=f"**➨ {prizeMoney}**", inline=True)
                 #embed.add_field(name="**● Total Winners :**", value=f"**➨ {winn} 🎉**", inline=True)
