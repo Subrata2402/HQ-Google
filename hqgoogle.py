@@ -22,7 +22,7 @@ from time import sleep
 
 webhook_url="https://discordapp.com/api/webhooks/788848429987397722/2Sa1RpL0k0tbLUwe5JBegRHZ3XvIBMVte9Kc621N76nMclvC55CcNEbyVvAv4sdSrTYs"
 
-we="https://discordapp.com/api/webhooks/788848429987397722/2Sa1RpL0k0tbLUwe5JBegRHZ3XvIBMVte9Kc621N76nMclvC55CcNEbyVvAv4sdSrTYs"
+we="https://discordapp.com/api/webhooks/805617639585480735/o6dKPMWro0o8mphA7iu3gB7ISNMP2gXS-4AVQu2n7V-1zVNm9NI2kDYAlFchpA87SgTG"
 
 
 try:
@@ -168,7 +168,7 @@ def connect_websocket(socket_url, auth_token):
                     embed2=discord.Embed(title=f"**__Google Search Results !__**", description=f"**１. {answers[0]}:** **{countoption1}** <:emoji_13:772843132093202443>\n**２. {answers[1]}:** **{countoption2}**\n**３. {answers[2]}:** **{countoption3}**", color=0x00FBFF)
                     embed2.set_footer(text="HQ Google | Subrata#3297")
                     hook.send(embed=embed2)
-                    hook.send("hp")
+                    #hook.send("hp")
                     sleep(10)
                     embed3=discord.Embed(title="⏰ Time's Up!", color=0x00FBFF) 
                     hook.send(embed=embed3)
@@ -176,7 +176,7 @@ def connect_websocket(socket_url, auth_token):
                     embed2=discord.Embed(title=f"**__Google Search Results !__**", description=f"**１. {answers[0]}:** **{countoption1}**\n**２. {answers[1]}:** **{countoption2}** <:emoji_13:772843132093202443>\n**３. {answers[2]}:** **{countoption3}**", color=0x00FBFF)
                     embed2.set_footer(text="HQ Google | Subrata#3297")
                     hook.send(embed=embed2)
-                    hook.send("hp")
+                    #hook.send("hp")
                     sleep(10)
                     embed3=discord.Embed(title="⏰ Time's Up!", color=0x00FBFF) 
                     hook.send(embed=embed3)
@@ -184,7 +184,7 @@ def connect_websocket(socket_url, auth_token):
                     embed2=discord.Embed(title=f"**__Google Search Results !__**", description=f"**１. {answers[0]}:** **{countoption1}**\n**２. {answers[1]}:** **{countoption2}**\n**３. {answers[2]}:** **{countoption3}** <:emoji_13:772843132093202443>", color=0x00FBFF)
                     embed2.set_footer(text="HQ Google | Subrata#3297")
                     hook.send(embed=embed2)
-                    hook.send("hp")
+                    #hook.send("hp")
                     sleep(10)
                     embed3=discord.Embed(title="⏰ Time's Up!", color=0x00FBFF) 
                     hook.send(embed=embed3)
@@ -201,12 +201,14 @@ def connect_websocket(socket_url, auth_token):
                 advancing = message_data['advancingPlayersCount']
                 eliminated = message_data['eliminatedPlayersCount']
                 nextcheck = message_data['nextCheckpointIn']
+                ans = (5000)/(int(advancing))
+                payout = float("{:.2f}".format(ans))
 
                 print(colored(correct, "blue"))
                 print(advancing)
                 print(eliminated)
                 embd=discord.Embed(title=f"**Question {qcnt} of {Fullcnt}**",  description=f"**[{question}]({google_query})**\n**Correct Answer: {correct}** <:emoji_13:772843132093202443>", color=0x4286f4)
-                embd.add_field(name="**__Status !__**", value=f"**● Advancing Players: {advancing}**\n**● Eliminated  Players: {eliminated}**", inline=True)
+                embd.add_field(name="**__Status !__**", value=f"**● Advancing Players: {advancing}**\n**● Eliminated  Players: {eliminated}\nCurrent Payout: {payout}**", inline=True)
                 embd.set_footer(text=f"HQ Google | Subrata#3297", icon_url="")
                 hook.send(embed=embd)
 
