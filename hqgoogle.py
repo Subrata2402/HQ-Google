@@ -145,6 +145,7 @@ def connect_websocket(socket_url, auth_token):
                 embed.set_footer(text="HQ Google | Subrata#3297", icon_url="")
                 #embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/578379566544846901/630400208265805835/401ec468afa82a2937b8ad3a4e811463.jpg")
                 hook.send(embed=embed)
+                hook.send(message_data)
                 #hook.send("+hp")
                 option1=f"{answers[0]}"
                 option2=f"{answers[1]}"
@@ -207,14 +208,17 @@ def connect_websocket(socket_url, auth_token):
                 nextcheck = message_data['nextCheckpointIn']
                 ans = (5000)/(int(advancing))
                 payout = float("{:.2f}".format(ans))
-                #total = int(advancing) + int(eliminated)
-                #percentAdvancing = (int(advancing)*(100))/(int(total))
-                #percentEliminated = (int(eliminated)*(100))/(int(total))
+                total = int(advancing) + int(eliminated)
+                percentAdvancing = (int(advancing)*(100))/(int(total))
+                pA = float("{:.2f}".format(percentAdvancing))
+                percentEliminated = (int(eliminated)*(100))/(int(total))
+                pE = float("{:.2f}".format(percentEliminated))
                 print(message_data)
-                embd=discord.Embed(title=f"Question {qcnt} of {Fullcnt}**",  description=f"**[{question}]({google_query})**\n**Correct Answer: {correct}** <:emoji_13:772843132093202443>", color=0x4286f4)
-                embd.add_field(name="**__Status !__**", value=f"**● Advancing Players: {advancing}**\n**● Eliminated  Players: {eliminated}\n● Current Payout: ${payout}**", inline=True)
+                embd=discord.Embed(title=f"**__Answer Status !__**",  description=f"● **Correct Answer: {correct}** <:emoji_13:772843132093202443>", color=0x4286f4)
+                embd.add_field(name="**__Status !__**", value=f"**● Advancing Players: {advancing} {pA}**\n**● Eliminated  Players: {eliminated} {pE}\n● Current Payout: ${payout}**", inline=True)
                 embd.set_footer(text=f"HQ Google | Subrata#3297", icon_url="")
                 hook.send(embed=embd)
+                hook.send(message_data)
 
             elif message_data["type"] == "gameSummary":
                 winn = message_data['numWinners']
@@ -227,6 +231,7 @@ def connect_websocket(socket_url, auth_token):
                 embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/737764195743039488/737768505935659178/giphy1.gif")
                 embed.set_footer(text=f"HQ Google | Subrata#3297", icon_url="")
                 hook.send(embed=embed)
+                hook.send(message_data)
 
 
 
