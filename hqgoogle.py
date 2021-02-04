@@ -18,6 +18,10 @@ from bs4 import BeautifulSoup
 from dhooks import Webhook, Embed
 import aniso8601
 from time import sleep
+global question
+global qcnt
+global Fullcnt
+global google_query
 
 
 webhook_url="https://discordapp.com/api/webhooks/805617639585480735/o6dKPMWro0o8mphA7iu3gB7ISNMP2gXS-4AVQu2n7V-1zVNm9NI2kDYAlFchpA87SgTG"
@@ -128,6 +132,10 @@ def connect_websocket(socket_url, auth_token):
            # print(message_data)
 
             if message_data['type'] == 'question':
+                global question
+                global qcnt
+                global Fullcnt
+                global google_query
                 question = message_data['question']
                 qcnt = message_data['questionNumber']
                 Fullcnt = message_data['questionCount']
@@ -214,8 +222,8 @@ def connect_websocket(socket_url, auth_token):
                 percentEliminated = (int(eliminated)*(100))/(int(total))
                 pE = float("{:.2f}".format(percentEliminated))
                 print(message_data)
-                embd=discord.Embed(title=f"**__Answer Status !__**",  description=f"● **Correct Answer: {correct}** <:emoji_13:772843132093202443>", color=0x4286f4)
-                embd.add_field(name="**__Status !__**", value=f"**● Advancing Players: {advancing} {pA}**\n**● Eliminated  Players: {eliminated} {pE}\n● Current Payout: ${payout}**", inline=True)
+                embd=discord.Embed(title=f"**Question {qcnt} of {Fullcnt}**",  description=f"**[{question}]({google_query})**\n● **Correct Answer: {correct}** <:emoji_13:772843132093202443>", color=0x4286f4)
+                embd.add_field(name="**__Status !__**", value=f"**● Advancing Players: {advancing} ({pA}%)**\n**● Eliminated  Players: {eliminated} ({pE}%)\n● Current Payout: ${payout}**", inline=True)
                 embd.set_footer(text=f"HQ Google | Subrata#3297", icon_url="")
                 hook.send(embed=embd)
                 hook.send(message_data)
