@@ -18,6 +18,7 @@ from bs4 import BeautifulSoup
 from dhooks import Webhook, Embed
 import aniso8601
 from time import sleep
+
 global question
 global qcnt
 global Fullcnt
@@ -162,7 +163,6 @@ def connect_websocket(socket_url, auth_token):
                 soup = BeautifulSoup(r.text, 'html.parser')
                 response = soup.find_all("span", class_="st")
                 res = str(r.text)
-                hook.send(res)
                 countoption1 = res.count(option1)
                 countoption2 = res.count(option2)
                 countoption3 = res.count(option3)
@@ -170,7 +170,6 @@ def connect_websocket(socket_url, auth_token):
                 sumcount = countoption1+countoption2+countoption3
                 print("/n")
                 print(r)
-                print(res)
                 if countoption1 == maxcount:
                 	print(f"A {answers[0]}")
                 elif countoption2 == maxcount:
