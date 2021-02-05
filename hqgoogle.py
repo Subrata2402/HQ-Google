@@ -227,6 +227,16 @@ def connect_websocket(socket_url, auth_token):
                 embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/737764195743039488/737768505935659178/giphy1.gif")
                 embed.set_footer(text=f"HQ Google | Subrata#3297", icon_url="")
                 hook.send(embed=embed)
+                name1 = str(message_data["winners"][0]["name"])
+                prize1 = str(message_data["winners"][0]["prize"])
+                name2 = str(message_data["winners"][1]["name"])
+                prize2 = str(message_data["winners"][1]["prize"])
+                name3 = str(message_data["winners"][2]["name"])
+                prize3 = str(message_data["winners"][2]["prize"])
+                winner = discord.Embed(title="**__First Three Winners !__**", description=f"**● {name1} – {prize1}\n● {name2} – {prize2}\n● {name3} – {prize3}**", color=0x4286f4)
+                winner.set_thumbnail(url="https://cdn.discordapp.com/attachments/737764195743039488/737768505935659178/giphy1.gif")
+                winner.set_footer(text=f"HQ Google | Subrata#3297", icon_url="")
+                hook.send(embed=winner)
 
 
 
