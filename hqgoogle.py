@@ -19,10 +19,6 @@ from dhooks import Webhook, Embed
 import aniso8601
 from time import sleep
 
-global question
-global qcnt
-global Fullcnt
-global google_query
 
 
 webhook_url="https://discordapp.com/api/webhooks/805617639585480735/o6dKPMWro0o8mphA7iu3gB7ISNMP2gXS-4AVQu2n7V-1zVNm9NI2kDYAlFchpA87SgTG"
@@ -133,10 +129,6 @@ def connect_websocket(socket_url, auth_token):
            # print(message_data)
 
             if message_data['type'] == 'question':
-                global question
-                global qcnt
-                global Fullcnt
-                global google_query
                 question = message_data['question']
                 qcnt = message_data['questionNumber']
                 Fullcnt = message_data['questionCount']
@@ -154,8 +146,6 @@ def connect_websocket(socket_url, auth_token):
                 embed.set_footer(text="HQ Google | Subrata#3297", icon_url="")
                 #embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/578379566544846901/630400208265805835/401ec468afa82a2937b8ad3a4e811463.jpg")
                 hook.send(embed=embed)
-                #hook.send(message_data)
-                #hook.send("+hp")
                 option1=f"{answers[0]}"
                 option2=f"{answers[1]}"
                 option3=f"{answers[2]}"
@@ -225,7 +215,6 @@ def connect_websocket(socket_url, auth_token):
                 embd.add_field(name="**__Status !__**", value=f"**● Advancing Players: {advancing} ({pA}%)**\n**● Eliminated  Players: {eliminated} ({pE}%)\n● Current Payout: ${payout}**", inline=True)
                 embd.set_footer(text=f"HQ Google | Subrata#3297", icon_url="")
                 hook.send(embed=embd)
-                #hook.send(message_data)
 
             elif message_data["type"] == "gameSummary":
                 winn = message_data['numWinners']
@@ -238,7 +227,6 @@ def connect_websocket(socket_url, auth_token):
                 embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/737764195743039488/737768505935659178/giphy1.gif")
                 embed.set_footer(text=f"HQ Google | Subrata#3297", icon_url="")
                 hook.send(embed=embed)
-                #hook.send(message_data)
 
 
 
