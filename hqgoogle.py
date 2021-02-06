@@ -139,7 +139,7 @@ def connect_websocket(socket_url, auth_token):
                 real_question = str(question).replace(" ","+")
                 google_query = "https://google.com/search?q="+real_question
                 print(message_data)
-                embed=discord.Embed(title=f"**Question No. {qcnt} out of {Fullcnt}**",  description=f"**[{question}]({google_query})**", color=0xff5733)
+                embed=discord.Embed(title=f"**Question {qcnt} out of {Fullcnt}**",  description=f"**[{question}]({google_query})**", color=0xff5733)
                 embed.add_field(name="**Option -１**", value=f"**[{answers[0]}]({google_query})**", inline=True)
                 embed.add_field(name="**Option -２**", value=f"**[{answers[1]}]({google_query})**", inline=True)
                 embed.add_field(name="**Option -３**", value=f"**[{answers[2]}]({google_query})**", inline=True)
@@ -211,7 +211,7 @@ def connect_websocket(socket_url, auth_token):
                 percentEliminated = (int(eliminated)*(100))/(int(total))
                 pE = float("{:.2f}".format(percentEliminated))
                 print(message_data)
-                embd=discord.Embed(description=f"● **Correct Answer: {correct}** <:emoji_13:772843132093202443>", color=0x4286f4)
+                embd=discord.Embed(title=f"**Question {qcnt} out of {Fullcnt}**",  description=f"**[{question}]({google_query})**\n**Correct Answer: {correct}** <:emoji_13:772843132093202443>", color=0x4286f4)
                 embd.add_field(name="**__Status !__**", value=f"**● Advancing Players: {advancing} ({pA}%)**\n**● Eliminated  Players: {eliminated} ({pE}%)\n● Current Payout: ${payout}**", inline=True)
                 embd.set_footer(text=f"HQ Google | Subrata#3297", icon_url="")
                 hook.send(embed=embd)
