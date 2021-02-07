@@ -267,8 +267,8 @@ def connect_websocket(socket_url, auth_token):
                 name12 = str(message_data["winners"][11]["name"])
                 prize12 = str(message_data["winners"][11]["prize"])
                 winner = discord.Embed(title="**__Some Winners Name & Prize !__**", description=f"**{name1}({prize1}), {name2}({prize2}), {name3}({prize3}), {name4}({prize4}), {name5}({prize5}), {name6}({prize6}), {name7}({prize7}), {name8}({prize8}), {name9}({prize9}), {name10}({prize10}), {name11}({prize11}), {name12}({prize12})**", color=0x4286f4)
-                winner.set_thumbnail(url="https://cdn.discordapp.com/attachments/737764195743039488/737768505935659178/giphy1.gif")
-                winner.set_footer(text=f"HQ Google | Subrata#3297", icon_url="")
+                #winner.set_thumbnail(url="https://cdn.discordapp.com/attachments/737764195743039488/737768505935659178/giphy1.gif")
+                #winner.set_footer(text=f"HQ Google | Subrata#3297", icon_url="")
                 hook.send(embed=winner)
 
 
