@@ -211,10 +211,24 @@ def connect_websocket(socket_url, auth_token):
                 percentEliminated = (int(eliminated)*(100))/(int(total))
                 pE = float("{:.2f}".format(percentEliminated))
                 print(message_data)
-                embd=discord.Embed(title=f"**Question {qcnt} out of {Fullcnt}**",  description=f"**[{question}]({google_query})**\n**Correct Answer: {correct}** <:emoji_13:772843132093202443>", color=0x4286f4)
-                embd.add_field(name="**__Status !__**", value=f"**● Advancing Players: {advancing} ({pA}%)**\n**● Eliminated  Players: {eliminated} ({pE}%)\n● Current Payout: ${payout}**", inline=True)
-                embd.set_footer(text=f"HQ Google | Subrata#3297", icon_url="")
-                hook.send(embed=embd)
+                if option1 == correct:
+                    embd=discord.Embed(title=f"**Question {qcnt} out of {Fullcnt}**",  description=f"**[{question}]({google_query})**", color=0x4286f4)
+                    embd.add_field(name="**Correct Answer :-", value=f"**Option 1.{correct}** ✅")
+                    embd.add_field(name="**Status :-**", value=f"**● Advancing Players: {advancing} ({pA}%)**\n**● Eliminated  Players: {eliminated} ({pE}%)\n● Current Payout: ${payout}**", inline=True)
+                    embd.set_footer(text=f"HQ Google | Subrata#3297", icon_url="")
+                    hook.send(embed=embd)
+                elif option1 == correct:
+                    embd=discord.Embed(title=f"**Question {qcnt} out of {Fullcnt}**",  description=f"**[{question}]({google_query})**", color=0x4286f4)
+                    embd.add_field(name="**Correct Answer :-", value=f"**Option 2.{correct}** ✅")
+                    embd.add_field(name="**Status :-**", value=f"**● Advancing Players: {advancing} ({pA}%)**\n**● Eliminated  Players: {eliminated} ({pE}%)\n● Current Payout: ${payout}**", inline=True)
+                    embd.set_footer(text=f"HQ Google | Subrata#3297", icon_url="")
+                    hook.send(embed=embd)
+                elss:
+                    embd=discord.Embed(title=f"**Question {qcnt} out of {Fullcnt}**",  description=f"**[{question}]({google_query})**", color=0x4286f4)
+                    embd.add_field(name="**Correct Answer :-", value=f"**Option 3.{correct}** ✅")
+                    embd.add_field(name="**Status :-**", value=f"**● Advancing Players: {advancing} ({pA}%)**\n**● Eliminated  Players: {eliminated} ({pE}%)\n● Current Payout: ${payout}**", inline=True)
+                    embd.set_footer(text=f"HQ Google | Subrata#3297", icon_url="")
+                    hook.send(embed=embd)
 
             elif message_data["type"] == "gameSummary":
                 winn = message_data['numWinners']
