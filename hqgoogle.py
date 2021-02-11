@@ -126,7 +126,7 @@ def connect_websocket(socket_url, auth_token):
             message = msg.text
             message = re.sub(r"[\x00-\x1f\x7f-\x9f]", "", message)
             message_data = json.loads(message)
-           # print(message_data)
+            print(message_data)
 
             if message_data['type'] == 'question':
                 question = message_data['question']
@@ -138,7 +138,7 @@ def connect_websocket(socket_url, auth_token):
                 #print(f"\n{answers[0]}\n{answers[1]}\n{answers[2]}\n")
                 real_question = str(question).replace(" ","+")
                 google_query = "https://google.com/search?q="+real_question
-                print(message_data)
+                #print(message_data)
                 embed=discord.Embed(title=f"**Question {qcnt} out of {Fullcnt}**",  description=f"**[{question}]({google_query})**", color=0xff5733)
                 embed.add_field(name="**Option -１**", value=f"**[{answers[0]}]({google_query})**", inline=True)
                 embed.add_field(name="**Option -２**", value=f"**[{answers[1]}]({google_query})**", inline=True)
