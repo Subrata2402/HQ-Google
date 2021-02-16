@@ -213,19 +213,19 @@ def connect_websocket(socket_url, auth_token):
                 print(message_data)
                 if option1 == correct:
                     embd=discord.Embed(title=f"**Question {qcnt} out of {Fullcnt}**",  description=f"**[{question}]({google_query})**", color=0x4286f4)
-                    embd.add_field(name="**Correct Answer :-**", value=f"Option **1**. {correct}")
+                    embd.add_field(name="**Correct Answer :-**", value=f"**Option <:emoji_65:778484715761434634>. {correct}**")
                     embd.add_field(name="**Status :-**", value=f"**● Advancing Players: {advancing} ({pA}%)**\n**● Eliminated  Players: {eliminated} ({pE}%)\n● Current Payout: ${payout}**", inline=True)
                     embd.set_footer(text=f"HQ Google | Subrata#3297", icon_url="")
                     hook.send(embed=embd)
                 elif option2 == correct:
                     embd=discord.Embed(title=f"**Question {qcnt} out of {Fullcnt}**",  description=f"**[{question}]({google_query})**", color=0x4286f4)
-                    embd.add_field(name="**Correct Answer :-**", value=f"Option **2**. {correct}")
+                    embd.add_field(name="**Correct Answer :-**", value=f"**Option <:emoji_222:778484756840448011>. {correct}**")
                     embd.add_field(name="**Status :-**", value=f"**● Advancing Players: {advancing} ({pA}%)**\n**● Eliminated  Players: {eliminated} ({pE}%)\n● Current Payout: ${payout}**", inline=True)
                     embd.set_footer(text=f"HQ Google | Subrata#3297", icon_url="")
                     hook.send(embed=embd)
                 else:
                     embd=discord.Embed(title=f"**Question {qcnt} out of {Fullcnt}**",  description=f"**[{question}]({google_query})**", color=0x4286f4)
-                    embd.add_field(name="**Correct Answer :-**", value=f"Option **3**. {correct}")
+                    embd.add_field(name="**Correct Answer :-**", value=f"**Option <:emoji_67:778484782132756480>. {correct}**")
                     embd.add_field(name="**Status :-**", value=f"**● Advancing Players: {advancing} ({pA}%)**\n**● Eliminated  Players: {eliminated} ({pE}%)\n● Current Payout: ${payout}**", inline=True)
                     embd.set_footer(text=f"HQ Google | Subrata#3297", icon_url="")
                     hook.send(embed=embd)
