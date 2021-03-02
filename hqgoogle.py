@@ -144,7 +144,7 @@ def connect_websocket(socket_url, auth_token):
                 embed.add_field(name="**Option -２**", value=f"**[{answers[1]}]({google_query})**", inline=True)
                 embed.add_field(name="**Option -３**", value=f"**[{answers[2]}]({google_query})**", inline=True)
                 #embed.set_footer(text="HQ Google | Subrata#3297", icon_url="")
-                embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/578379566544846901/630400208265805835/401ec468afa82a2937b8ad3a4e811463.jpg.")
+                embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/775385127021969418/816118599869005866/1200px-HQ_logo.svg.png")
                 hook.send(embed=embed)
                 option1=f"{answers[0]}"
                 option2=f"{answers[1]}"
