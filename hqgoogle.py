@@ -254,7 +254,7 @@ def connect_websocket(socket_url, auth_token):
                 embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/737764195743039488/737768505935659178/giphy1.gif")
                 #embed.set_footer(text=f"HQ Google | Subrata#3297", icon_url="")
                 hook.send(embed=embed)
-                hq.send(embed=embd)
+                hq.send(embed=embed)
                 
 
 
