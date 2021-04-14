@@ -36,7 +36,19 @@ try:
     hq = Webhook(we)
 except:
     print("Invalid WebHook Url Lol")
-    
+
+main_url = 'https://api-quiz.hype.space/shows/now'
+response_data = requests.get(main_url).json()
+tim = (response_data["nextShowTime"])
+tm = aniso8601.parse_datetime(tim)
+x_ind = tm.astimezone(timezone("Asia/Kolkata"))
+time = x_ind.strftime("%d-%m-%Y %I:%M %p")
+prize = (response_data["nextShowPrize"])
+for data in response_data["upcoming"]:
+    type = data["nextShowLabel"]["title"]
+embed=discord.Embed(title="**__HQ Next Show Details !__**", description=f"**• Show Name : {type}\n• Show Time : {time}\n• Prize Money : {prize}**", color=0x00FBFF)
+embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/799237115962851348/816261537101905951/1200px-HQ_logo.svg.png")
+hook.send(embed=embed)
 
 def show_not_on():
     colorama.init()
@@ -216,7 +228,7 @@ def connect_websocket(socket_url, auth_token):
                 advancing = message_data['advancingPlayersCount']
                 eliminated = message_data['eliminatedPlayersCount']
                 nextcheck = message_data['nextCheckpointIn']
-                ans = (2500)/(int(advancing))
+                ans = (5000)/(int(advancing))
                 payout = float("{:.2f}".format(ans))
                 total = int(advancing) + int(eliminated)
                 percentAdvancing = (int(advancing)*(100))/(int(total))
@@ -250,7 +262,7 @@ def connect_websocket(socket_url, auth_token):
                 winn = message_data['numWinners']
                 prizeMoney = str(message_data["winners"][0]["prize"])
                 print(message_data)
-                embed=discord.Embed(title="**__Game Summary !__**",description=f"**● Payout : {prizeMoney}\n● Total Winners : {winn}\n● Prize Money : $2,500**",color=0x00FBFF)
+                embed=discord.Embed(title="**__Game Summary !__**",description=f"**● Payout : {prizeMoney}\n● Total Winners : {winn}\n● Prize Money : $5,000**",color=0x00FBFF)
                 embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/737764195743039488/737768505935659178/giphy1.gif")
                 #embed.set_footer(text=f"HQ Google | Subrata#3297", icon_url="")
                 hook.send(embed=embed)
