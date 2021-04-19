@@ -23,7 +23,7 @@ from time import sleep
 
 webhook_url="https://discordapp.com/api/webhooks/827339252026966106/X7vIpYCRjzAKGNFh8TbaoatZDyRU1wutl1K4eSkGzl8aUslpY3MQLRexmd3ewDFV3GpB"
 
-we="https://discordapp.com/api/webhooks/816119970051915848/6CjdSY1EukY2GuaEnO_14VhtxqO9RukkOHcwOUiCwfRXWuprbO1bcfxessEa-OUC4B7H"
+we="https://discordapp.com/api/webhooks/833779371600248863/i5IiNSclwDM16dk4ke0hOEPZomGE8V0znOdJ2eQyblgg5IKqnVm8RBJ6HpSoxUuJfMPj"
 
 
 try:
