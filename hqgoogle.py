@@ -21,9 +21,9 @@ from time import sleep
 
 
 
-webhook_url="https://discordapp.com/api/webhooks/827339252026966106/X7vIpYCRjzAKGNFh8TbaoatZDyRU1wutl1K4eSkGzl8aUslpY3MQLRexmd3ewDFV3GpB"
+webhook_url="https://discordapp.com/api/webhooks/838850742575824966/-DN36GNIQgY3cVaESJI8aEE88BCrXoxrZWT0Z97KDe1I7-p4Fru5-tOudRcmq8JhTnRr"
 
-we="https://discordapp.com/api/webhooks/833779371600248863/i5IiNSclwDM16dk4ke0hOEPZomGE8V0znOdJ2eQyblgg5IKqnVm8RBJ6HpSoxUuJfMPj"
+we="https://discordapp.com/api/webhooks/838850742575824966/-DN36GNIQgY3cVaESJI8aEE88BCrXoxrZWT0Z97KDe1I7-p4Fru5-tOudRcmq8JhTnRr"
 
 
 try:
@@ -87,14 +87,8 @@ def show_not_on():
             time.sleep(5)
             print(x_in)
             print(prize)
-            #embed=discord.Embed(title=f"➜〢Date – {x_in}\n➜〢Time – {x_i}AM\n➜〢Prize Money – {prize}", color=0x000000)
-           # embed = Embed(title=f"HQ Trivia", description=f"**Next Game Starts In**\n**{x_in}**", color=0x000000)
-            #embed.add_field(name="Next Show Prize", value=f"**{prize}**",inline=True)
-            #embed.set_image(url="https://cdn.discordapp.com/attachments/649457795875209265/672845602824126494/Nitro_2.gif")
-            #embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/578379566544846901/630400208265805835/401ec468afa82a2937b8ad3a4e811463.jpg")
-            #embed.set_footer(text="HQ Trivia Show | Subrata#3297")
-            #embed=discord.Embed(title="**Connected to HQ Websocket** ✅", color=0x000000)
-            #hook.send(content="@everyone **Next Game Details !**", embed=embed)
+            embed=discord.Embed(title=f"➜〢Date – {x_in}\n➜〢Time – {x_i}AM\n➜〢Prize Money – {prize}", color=0x000000)
+            hook.send(embed=embed)
 
 
 
@@ -127,27 +121,26 @@ def connect_websocket(socket_url, auth_token):
             message = msg.text
             message = re.sub(r"[\x00-\x1f\x7f-\x9f]", "", message)
             message_data = json.loads(message)
-            print(message_data)
 
             if message_data['type'] == 'question':
                 question = message_data['question']
                 qcnt = message_data['questionNumber']
                 Fullcnt = message_data['questionCount']
-
-                #print(f"\nQuestion number {qcnt} out of {Fullcnt}\n{question}")
                 answers = [unidecode(ans["text"]) for ans in message_data["answers"]]
-                #print(f"\n{answers[0]}\n{answers[1]}\n{answers[2]}\n")
                 real_question = str(question).replace(" ","+")
                 google_query = "https://google.com/search?q="+real_question
-                #print(message_data)
+                id1 = message_data["answers"][0]["answerId"]
+                id2 = message_data["answers"][1]["answerId"]
+                id3 = message_data["answers"][2]["answerId"]
+
                 embed=discord.Embed(title=f"**Question {qcnt} out of {Fullcnt}**",  description=f"**[{question}]({google_query})**", color=0xff5733)
                 embed.add_field(name="**Option -１**", value=f"**[{answers[0]}]({google_query})**", inline=True)
                 embed.add_field(name="**Option -２**", value=f"**[{answers[1]}]({google_query})**", inline=True)
                 embed.add_field(name="**Option -３**", value=f"**[{answers[2]}]({google_query})**", inline=True)
-                #embed.set_footer(text="HQ Google | Subrata#3297", icon_url="")
+                embed.set_footer(text="HQ Google & Friends")
                 embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/775385127021969418/816118599869005866/1200px-HQ_logo.svg.png")
                 hook.send(embed=embed)
-                hq.send(embed=embed)
+
                 option1=f"{answers[0]}"
                 option2=f"{answers[1]}"
                 option3=f"{answers[2]}"
@@ -160,58 +153,42 @@ def connect_websocket(socket_url, auth_token):
                 countoption3 = res.count(option3)
                 maxcount = max(countoption1, countoption2, countoption3)
                 sumcount = countoption1+countoption2+countoption3
-                print("/n")
-                print(r)
-                if countoption1 == maxcount:
-                	print(f"A {answers[0]}")
-                elif countoption2 == maxcount:
-                	print(f"B {answers[1]}")
-                else:
-                	print(f"C {answers[2]}")              
+                
                 if countoption1 == maxcount:
                     embed2=discord.Embed(title=f"**__Google Search Results !__**", description=f"**１. {answers[0]} :** **{countoption1}** ✅\n**２. {answers[1]} :** **{countoption2}**\n**３. {answers[2]} :** **{countoption3}**", color=0x00FBFF)
                     embed2.add_field(name="**Google Answer :-**", value=f"**Option １. {answers[0]}**")
-                    #embed2.set_footer(text="HQ Google | Subrata#3297")
+                    embed2.set_footer(text="HQ Google & Friends")
                     hook.send(embed=embed2)
-                    hook.send("dt")
-                    hq.send(embed=embed2)
-                    #hq.send("sd")
-                    sleep(9)
-                    embed3=discord.Embed(title="⏰ Time's Up!", color=0x00FBFF) 
-                    hook.send(embed=embed3)
-                    hq.send(embed=embed3)
                 elif countoption2 == maxcount:
                     embed2=discord.Embed(title=f"**__Google Search Results !__**", description=f"**１. {answers[0]} :** **{countoption1}**\n**２. {answers[1]} :** **{countoption2}** ✅\n**３. {answers[2]} :** **{countoption3}**", color=0x00FBFF)
                     embed2.add_field(name="**Google Answer :-**", value=f"**Option ２. {answers[1]}**")
-                    #embed2.set_footer(text="HQ Google | Subrata#3297")
+                    embed2.set_footer(text="HQ Google & Friends")
                     hook.send(embed=embed2)
-                    hook.send("dt")
-                    hq.send(embed=embed2)
-                    #hq.send("sd")
-                    sleep(9)
-                    embed3=discord.Embed(title="⏰ Time's Up!", color=0x00FBFF) 
-                    hook.send(embed=embed3)
-                    hq.send(embed=embed3)
                 else:
                     embed2=discord.Embed(title=f"**__Google Search Results !__**", description=f"**１. {answers[0]} :** **{countoption1}**\n**２. {answers[1]} :** **{countoption2}**\n**３. {answers[2]} :** **{countoption3}** ✅", color=0x00FBFF)
                     embed2.add_field(name="**Google Answer :-**", value=f"**Option ３. {answers[2]}**")
-                    #embed2.set_footer(text="HQ Google | Subrata#3297")
+                    embed2.set_footer(text="HQ Google & Friends")
                     hook.send(embed=embed2)
-                    hook.send("dt")
-                    hq.send(embed=embed2)
-                    #hq.send("sd")
-                    sleep(9)
-                    embed3=discord.Embed(title="⏰ Time's Up!", color=0x00FBFF) 
-                    hook.send(embed=embed3)
-                    hq.send(embed=embed3)
+
+            elif message_data['type'] == 'answered':
+                name = message_data["username"]
+                ansid = message_data["answerId"]
+                if ansid == id1:
+                    embed = discord.Embed(title=f"{name} went Option - 1", color=0x00ff00)
+                    hook.send(embed=embed)
+                elif ansid == id2:
+                    embed = discord.Embed(title=f"{name} went Option - 2", color=0x00ff00)
+                    hook.send(embed=embed)
+                else:
+                    embed = discord.Embed(title=f"{name} went Option - 3", color=0x00ff00)
+                    hook.send(embed=embed)
+
                     
             elif message_data["type"] == "questionSummary":
-
                 answer_counts = {}
                 correct = ""
                 for answer in message_data["answerCounts"]:
                     ans_str = unidecode(answer["answer"])
-
                     if answer["correct"]:
                         correct = ans_str
                 advancing = message_data['advancingPlayersCount']
@@ -224,26 +201,26 @@ def connect_websocket(socket_url, auth_token):
                 pA = float("{:.2f}".format(percentAdvancing))
                 percentEliminated = (int(eliminated)*(100))/(int(total))
                 pE = float("{:.2f}".format(percentEliminated))
-                print(message_data)
+
                 if option1 == correct:
                     embd=discord.Embed(title=f"**Question {qcnt} out of {Fullcnt}**",  description=f"**[{question}]({google_query})**", color=0x4286f4)
                     embd.add_field(name="**Correct Answer :-**", value=f"**Option 1️⃣. {correct}**")
                     embd.add_field(name="**Status :-**", value=f"**● Advancing Players : {advancing} ({pA}%)**\n**● Eliminated  Players : {eliminated} ({pE}%)\n● Current Payout : ${payout}**", inline=True)
-                    #embd.set_footer(text=f"HQ Google | Subrata#3297", icon_url="")
+                    embd.set_footer(text=f"HQ Google & Friends")
                     hook.send(embed=embd)
                     hq.send(embed=embd)
                 elif option2 == correct:
                     embd=discord.Embed(title=f"**Question {qcnt} out of {Fullcnt}**",  description=f"**[{question}]({google_query})**", color=0x4286f4)
                     embd.add_field(name="**Correct Answer :-**", value=f"**Option 2️⃣. {correct}**")
                     embd.add_field(name="**Status :-**", value=f"**● Advancing Players : {advancing} ({pA}%)**\n**● Eliminated  Players : {eliminated} ({pE}%)\n● Current Payout : ${payout}**", inline=True)
-                    #embd.set_footer(text=f"HQ Google | Subrata#3297", icon_url="")
+                    #embd.set_footer(text=f"HQ Google & Friends")
                     hook.send(embed=embd)
                     hq.send(embed=embd)
                 else:
                     embd=discord.Embed(title=f"**Question {qcnt} out of {Fullcnt}**",  description=f"**[{question}]({google_query})**", color=0x4286f4)
                     embd.add_field(name="**Correct Answer :-**", value=f"**Option 3️⃣. {correct}**")
                     embd.add_field(name="**Status :-**", value=f"**● Advancing Players : {advancing} ({pA}%)**\n**● Eliminated  Players : {eliminated} ({pE}%)\n● Current Payout : ${payout}**", inline=True)
-                    #embd.set_footer(text=f"HQ Google | Subrata#3297", icon_url="")
+                    #embd.set_footer(text=f"HQ Google & Friends")
                     hook.send(embed=embd)
                     hq.send(embed=embd)
 
@@ -253,7 +230,7 @@ def connect_websocket(socket_url, auth_token):
                 print(message_data)
                 embed=discord.Embed(title="**__Game Summary !__**",description=f"**● Payout : {prizeMoney}\n● Total Winners : {winn}\n● Prize Money : $5,000**",color=0x00FBFF)
                 embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/737764195743039488/737768505935659178/giphy1.gif")
-                #embed.set_footer(text=f"HQ Google | Subrata#3297", icon_url="")
+                embed.set_footer(text=f"HQ Google & Friends")
                 hook.send(embed=embed)
                 hq.send(embed=embed)
                 
