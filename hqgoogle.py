@@ -21,7 +21,7 @@ from time import sleep
 
 
 
-webhook_url="https://discordapp.com/api/webhooks/841722823046201416/B2-v79IeUIbHXKGsdMTNyO5cb8iiKybZMAcXGncQTJWSebPH8RKt8JTWG7F8b0WBvGDd"
+webhook_url="https://discordapp.com/api/webhooks/838421331023233045/-AW8Pfv6d1wcHrn6npWAfTzmimAGFE-vxdjoHUiAjHmnTiXUe1OqpHDMOZghW8MrS15b"
 
 we="https://discordapp.com/api/webhooks/838850742575824966/-DN36GNIQgY3cVaESJI8aEE88BCrXoxrZWT0Z97KDe1I7-p4Fru5-tOudRcmq8JhTnRr"
 
@@ -88,7 +88,7 @@ def show_not_on():
             print(x_in)
             print(prize)
             embed=discord.Embed(title=f"➜〢Date – {x_in}\n➜〢Time – {x_i}AM\n➜〢Prize Money – {prize}", color=0x000000)
-            hq.send(embed=embed)
+            hook.send(embed=embed)
 
 
 
@@ -223,23 +223,32 @@ def connect_websocket(socket_url, auth_token):
                 pA = float("{:.2f}".format(percentAdvancing))
                 percentEliminated = (int(eliminated)*(100))/(int(total))
                 pE = float("{:.2f}".format(percentEliminated))
-
+                pattern = []
                 if option1 == correct:
+                    option = int(1)
+                    pattern.append(option)
                     embd=discord.Embed(title=f"**Question {qcnt} out of {Fullcnt}**",  description=f"**[{question}]({google_query})**", color=0x4286f4)
                     embd.add_field(name="**Correct Answer :-**", value=f"**Option 1️⃣. {correct}**")
                     embd.add_field(name="**Status :-**", value=f"**● Advancing Players : {advancing} ({pA}%)**\n**● Eliminated  Players : {eliminated} ({pE}%)\n● Current Payout : ${payout}**", inline=True)
+                    embd.add_field(name="**Current Pattern :-**", value=pattern)
                     #embd.set_footer(text=f"HQ Google | HQ Friends")
                     hook.send(embed=embd)
                 elif option2 == correct:
+                    option = int(2)
+                    pattern.append(option)
                     embd=discord.Embed(title=f"**Question {qcnt} out of {Fullcnt}**",  description=f"**[{question}]({google_query})**", color=0x4286f4)
                     embd.add_field(name="**Correct Answer :-**", value=f"**Option 2️⃣. {correct}**")
                     embd.add_field(name="**Status :-**", value=f"**● Advancing Players : {advancing} ({pA}%)**\n**● Eliminated  Players : {eliminated} ({pE}%)\n● Current Payout : ${payout}**", inline=True)
+                    embd.add_field(name="**Current Pattern :-**", value=pattern)
                     #embd.set_footer(text=f"HQ Google | HQ Friends")
                     hook.send(embed=embd)
                 else:
+                    option = int(3)
+                    pattern.append(option)
                     embd=discord.Embed(title=f"**Question {qcnt} out of {Fullcnt}**",  description=f"**[{question}]({google_query})**", color=0x4286f4)
                     embd.add_field(name="**Correct Answer :-**", value=f"**Option 3️⃣. {correct}**")
                     embd.add_field(name="**Status :-**", value=f"**● Advancing Players : {advancing} ({pA}%)**\n**● Eliminated  Players : {eliminated} ({pE}%)\n● Current Payout : ${payout}**", inline=True)
+                    embd.add_field(name="**Current Pattern :-**", value=pattern)
                     #embd.set_footer(text=f"HQ Google | HQ Friends")
                     hook.send(embed=embd)
 
