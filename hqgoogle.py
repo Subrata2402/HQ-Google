@@ -18,6 +18,7 @@ from bs4 import BeautifulSoup
 from dhooks import Webhook, Embed
 import aniso8601
 from time import sleep
+pattern = []
 
 
 
@@ -223,7 +224,7 @@ def connect_websocket(socket_url, auth_token):
                 pA = float("{:.2f}".format(percentAdvancing))
                 percentEliminated = (int(eliminated)*(100))/(int(total))
                 pE = float("{:.2f}".format(percentEliminated))
-                pattern = []
+                
                 if option1 == correct:
                     option = int(1)
                     pattern.append(option)
