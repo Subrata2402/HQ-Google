@@ -193,14 +193,49 @@ def connect_websocket(socket_url, auth_token):
             elif message_data['type'] == 'answered':
                 name = message_data["username"]
                 ansid = message_data["answerId"]
+                if name == "Thensiharma":
+                    name = "Friend - 1"
+                elif name == "Samsamhs":
+                    name = "Friend - 2"
+                elif name == "bjki":
+                    name = "Friend - 3"
+                elif name == "maxi8654":
+                    name = "Friend - 4"
+                elif name == "Dsam8":
+                    name = "Friend - 5"
+                elif name == "rewarydgoubo123":
+                    name = "Friend - 6"
+                elif name == "Denver9052":
+                    name = "Friend - 7"
+                elif name == "adnan2512":
+                    name = "Friend - 8"
+                elif name == "deadshot0198":
+                    name = "Friend - 9"
+                elif name == "StanleyJacob":
+                    name = "Friend - 10"
+                elif name == "PowerFor5":
+                    name = "Friend - 11"
+                elif name == "Serenityi":
+                    name = "Friend - 12"
+                elif name == "Crashtastic14":
+                    name = "Friend - 13"
+                elif name == "Mikegrad05":
+                    name = "Friend - 14"
+                elif name == "theCDP":
+                    name = "Friend - 15"
+                elif name == "btoff49":
+                    name = "Friend - 16"
+                else:
+                    name = name
+
                 if ansid == id1:
-                    embed = discord.Embed(title=f"||Private Friend|| went Option - 1", color=0x00ff00)
+                    embed = discord.Embed(title=f"**__{name}__**", description=f"**||Private Friend|| went Option - 1**", color=0x00ff00)
                     hook.send(embed=embed)
                 elif ansid == id2:
-                    embed = discord.Embed(title=f"||Private Friend|| went Option - 2", color=0x00ff00)
+                    embed = discord.Embed(title=f"**__{name}__**", description=f"**||Private Friend|| went Option - 2**", color=0x00ff00)
                     hook.send(embed=embed)
                 else:
-                    embed = discord.Embed(title=f"||Private Friend|| went Option - 3", color=0x00ff00)
+                    embed = discord.Embed(title=f"**__{name}__**", description=f"**||Private Friend|| went Option - 3**", color=0x00ff00)
                     hook.send(embed=embed)
 
             elif message_data["type"] == "questionClosed":
