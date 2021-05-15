@@ -227,34 +227,7 @@ def connect_websocket(socket_url, auth_token):
                 percentEliminated = (int(eliminated)*(100))/(int(total))
                 pE = float("{:.2f}".format(percentEliminated))
                 
-                if option1 == correct:
-                   # option = int(1)
-                    #pattern.append(option)
-                    embd=discord.Embed(title=f"**Question {qcnt} out of {Fullcnt}**",  description=f"**[{question}]({google_query})**", color=0x4286f4)
-                    embd.add_field(name="**Correct Answer :-**", value=f"**Option 1️⃣. {correct}**")
-                    embd.add_field(name="**Status :-**", value=f"**● Advancing Players : {advancing} ({pA}%)**\n**● Eliminated  Players : {eliminated} ({pE}%)\n● Current Payout : ${payout}**", inline=True)
-                    #embd.add_field(name="**Current Pattern :-**", value=pattern)
-                    #embd.set_footer(text=f"HQ Google | HQ Friends")
-                    hook.send(embed=embd)
-                elif option2 == correct:
-                   # option = int(2)
-                    #pattern.append(option)
-                    embd=discord.Embed(title=f"**Question {qcnt} out of {Fullcnt}**",  description=f"**[{question}]({google_query})**", color=0x4286f4)
-                    embd.add_field(name="**Correct Answer :-**", value=f"**Option 2️⃣. {correct}**")
-                    embd.add_field(name="**Status :-**", value=f"**● Advancing Players : {advancing} ({pA}%)**\n**● Eliminated  Players : {eliminated} ({pE}%)\n● Current Payout : ${payout}**", inline=True)
-                   # embd.add_field(name="**Current Pattern :-**", value=pattern)
-                    #embd.set_footer(text=f"HQ Google | HQ Friends")
-                    hook.send(embed=embd)
-                else:
-                   # option = int(3)
-                    #pattern.append(option)
-                    embd=discord.Embed(title=f"**Question {qcnt} out of {Fullcnt}**",  description=f"**[{question}]({google_query})**", color=0x4286f4)
-                    embd.add_field(name="**Correct Answer :-**", value=f"**Option 3️⃣. {correct}**")
-                    embd.add_field(name="**Status :-**", value=f"**● Advancing Players : {advancing} ({pA}%)**\n**● Eliminated  Players : {eliminated} ({pE}%)\n● Current Payout : ${payout}**", inline=True)
-                    #embd.add_field(name="**Current Pattern :-**", value=pattern)
-                    #embd.set_footer(text=f"HQ Google | HQ Friends")
-                    hook.send(embed=embd)
-
+                
             elif message_data["type"] == "gameSummary":
                 winn = message_data['numWinners']
                 prizeMoney = str(message_data["winners"][0]["prize"])
