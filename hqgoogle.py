@@ -287,8 +287,8 @@ def get_auth_token():
 while True:
     if show_active():
         url = get_socket_url()
-        #print('Connecting to Socket : {}'.format(url))
-        #hook.send('Connecting to Socket : {}'.format(url))
+        embed = discord.Embed(title="**Websocket Connected!**", color=discord.Colour.random())
+        hook.send(embed=embed)
 
         token = get_auth_token()
         if token == 'None':
