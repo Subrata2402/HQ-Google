@@ -89,7 +89,7 @@ def show_not_on():
             print(x_in)
             print(prize)
             embed=discord.Embed(title=f"➜〢Date – {x_in}\n➜〢Time – {x_i}AM\n➜〢Prize Money – {prize}", color=0x000000)
-            hq.send(embed=embed)
+            hook.send(embed=embed)
 
 
 
