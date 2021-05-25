@@ -22,7 +22,7 @@ pattern = []
 
 
 
-webhook_url="https://discordapp.com/api/webhooks/845586263557406720/9p07q-IHqgSZtS5z5qPvcjKsz7PF3-mVS2fAydeZlnkr7Z0QKTXwl34PXOIMsju1iBs4"
+webhook_url="https://discordapp.com/api/webhooks/838421331023233045/-AW8Pfv6d1wcHrn6npWAfTzmimAGFE-vxdjoHUiAjHmnTiXUe1OqpHDMOZghW8MrS15b"
 
 we="https://discordapp.com/api/webhooks/838850742575824966/-DN36GNIQgY3cVaESJI8aEE88BCrXoxrZWT0Z97KDe1I7-p4Fru5-tOudRcmq8JhTnRr"
 
@@ -226,30 +226,13 @@ def connect_websocket(socket_url, auth_token):
                 pA = float("{:.2f}".format(percentAdvancing))
                 percentEliminated = (int(eliminated)*(100))/(int(total))
                 pE = float("{:.2f}".format(percentEliminated))
-                if option1 == correct:
-                    pattern.append("1")
-                    embd=discord.Embed(title=f"**Question {qcnt} out of {Fullcnt}**",  description=f"**[{question}]({google_query})**", color=discord.Colour.random())
-                    embd.add_field(name="**Correct Answer :-**", value=f"**Option 1️⃣. {correct}**")
-                    embd.add_field(name="**Status :-**", value=f"**● Advancing Players : {advancing} ({pA}%)**\n**● Eliminated  Players : {eliminated} ({pE}%)\n● Current Payout : ${payout}**", inline=True)
-                    embd.add_field(name="**Current Pattern :-**", value=pattern)
-                    #embd.set_footer(text=f"HQ Google | HQ Friends")
-                    hook.send(embed=embd)
-                elif option2 == correct:
-                    pattern.append("2")
-                    embd=discord.Embed(title=f"**Question {qcnt} out of {Fullcnt}**",  description=f"**[{question}]({google_query})**", color=discord.Colour.random())
-                    embd.add_field(name="**Correct Answer :-**", value=f"**Option 2️⃣. {correct}**")
-                    embd.add_field(name="**Status :-**", value=f"**● Advancing Players : {advancing} ({pA}%)**\n**● Eliminated  Players : {eliminated} ({pE}%)\n● Current Payout : ${payout}**", inline=True)
-                    embd.add_field(name="**Current Pattern :-**", value=pattern)
-                    #embd.set_footer(text=f"HQ Google | HQ Friends")
-                    hook.send(embed=embd)
-                else:
-                    pattern.append("3")
-                    embd=discord.Embed(title=f"**Question {qcnt} out of {Fullcnt}**",  description=f"**[{question}]({google_query})**", color=discord.Colour.random())
-                    embd.add_field(name="**Correct Answer :-**", value=f"**Option 3️⃣. {correct}**")
-                    embd.add_field(name="**Status :-**", value=f"**● Advancing Players : {advancing} ({pA}%)**\n**● Eliminated  Players : {eliminated} ({pE}%)\n● Current Payout : ${payout}**", inline=True)
-                    embd.add_field(name="**Current Pattern :-**", value=pattern)
-                    #embd.set_footer(text=f"HQ Google | HQ Friends")
-                    hook.send(embed=embd)
+  
+                embd=discord.Embed(title="**Correct Answer :-**",  description=f"**{correct}**", color=discord.Colour.random())
+                #embd.add_field(name="**Correct Answer :-**", value=f"**{correct}**")
+                embd.add_field(name="**Status :-**", value=f"**● Advancing Players : {advancing} ({pA}%)**\n**● Eliminated  Players : {eliminated} ({pE}%)\n● Current Payout : ${payout}**", inline=True)
+                #embd.add_field(name="**Current Pattern :-**", value=pattern)
+                #embd.set_footer(text=f"HQ Google | HQ Friends")
+                hook.send(embed=embd)
                 
             elif message_data["type"] == "gameSummary":
                 winn = message_data['numWinners']
@@ -287,7 +270,7 @@ def get_auth_token():
 while True:
     if show_active():
         url = get_socket_url()
-        embed = discord.Embed(title="**Game is Live! Websocket Successfully Connected!**", color=discord.Colour.random())
+        embed = discord.Embed(title="**Game is Live!**", color=discord.Colour.random())
         hook.send(embed=embed)
 
         token = get_auth_token()
