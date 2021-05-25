@@ -136,7 +136,7 @@ def connect_websocket(socket_url, auth_token):
                 id2 = message_data["answers"][1]["answerId"]
                 id3 = message_data["answers"][2]["answerId"]
 
-                embed=discord.Embed(title=f"**Question {qcnt} out of {Fullcnt}**",  description=f"**[{question}]({google_query})**\n\n", color=0xff5733)
+                embed=discord.Embed(title=f"**Question {qcnt} out of {Fullcnt}**",  description=f"**[{question}]({google_query})**\n\n", color=discord.Colour.random())
                 embed.add_field(name="**Option -１**", value=f"**[{answers[0]}]({google_query})**", inline=True)
                 embed.add_field(name="**Option -２**", value=f"**[{answers[1]}]({google_query})**", inline=True)
                 embed.add_field(name="**Option -３**", value=f"**[{answers[2]}]({google_query})**", inline=True)
@@ -158,19 +158,19 @@ def connect_websocket(socket_url, auth_token):
                 sumcount = countoption1+countoption2+countoption3
                 
                 if countoption1 == maxcount:
-                    embed2=discord.Embed(title=f"**__Google Search Results !__**", description=f"**１. {answers[0]} :** **{countoption1}** ✅\n**２. {answers[1]} :** **{countoption2}**\n**３. {answers[2]} :** **{countoption3}**", color=0x00FBFF)
+                    embed2=discord.Embed(title=f"**__Google Search Results !__**", description=f"**１. {answers[0]} :** **{countoption1}** ✅\n**２. {answers[1]} :** **{countoption2}**\n**３. {answers[2]} :** **{countoption3}**", color=discord.Colour.random())
                     #embed2.add_field(name="**Google Answer :-**", value=f"**Option １. {answers[0]}**")
                     #embed2.set_footer(text="HQ Google | HQ Friends")
                     hook.send(embed=embed2)
                     #hook.send("*")
                 elif countoption2 == maxcount:
-                    embed2=discord.Embed(title=f"**__Google Search Results !__**", description=f"**１. {answers[0]} :** **{countoption1}**\n**２. {answers[1]} :** **{countoption2}** ✅\n**３. {answers[2]} :** **{countoption3}**", color=0x00FBFF)
+                    embed2=discord.Embed(title=f"**__Google Search Results !__**", description=f"**１. {answers[0]} :** **{countoption1}**\n**２. {answers[1]} :** **{countoption2}** ✅\n**３. {answers[2]} :** **{countoption3}**", color=discord.Colour.random())
                     #embed2.add_field(name="**Google Answer :-**", value=f"**Option ２. {answers[1]}**")
                     #embed2.set_footer(text="HQ Google | HQ Friends")
                     hook.send(embed=embed2)
                     #hook.send("*")
                 else:
-                    embed2=discord.Embed(title=f"**__Google Search Results !__**", description=f"**１. {answers[0]} :** **{countoption1}**\n**２. {answers[1]} :** **{countoption2}**\n**３. {answers[2]} :** **{countoption3}** ✅", color=0x00FBFF)
+                    embed2=discord.Embed(title=f"**__Google Search Results !__**", description=f"**１. {answers[0]} :** **{countoption1}**\n**２. {answers[1]} :** **{countoption2}**\n**３. {answers[2]} :** **{countoption3}** ✅", color=discord.Colour.random())
                     #embed2.add_field(name="**Google Answer :-**", value=f"**Option ３. {answers[2]}**")
                     #embed2.set_footer(text="HQ Google | HQ Friends")
                     hook.send(embed=embed2)
@@ -180,33 +180,33 @@ def connect_websocket(socket_url, auth_token):
                 soup = BeautifulSoup(r.text , "html.parser")
                 result = soup.find("div" , class_='BNeawe').text
                 if option1 in result:
-                    embed=Embed(title=f"**__Option 1. {option1}__**", description=result, color=0x00ffff)
+                    embed=Embed(title=f"**__Option 1. {option1}__**", description=result, color=discord.Colour.random())
                     hook.send(embed=embed)
                 elif option2 in result:
-                    embed=Embed(title=f"**__Option 2. {option2}__**", description=result, color=0x00ffff)
+                    embed=Embed(title=f"**__Option 2. {option2}__**", description=result, color=discord.Colour.random())
                     hook.send(embed=embed)
                 elif option3 in result:
-                    embed=Embed(title=f"**__Option 3. {option3}__**", description=result, color=0x00ffff)
+                    embed=Embed(title=f"**__Option 3. {option3}__**", description=result, color=discord.Colour.random())
                     hook.send(embed=embed)
                 else:
-                    embed=Embed(title=f"**__Direct Search Result !__**", description=result, color=0x00ffff)
+                    embed=Embed(title=f"**__Direct Search Result !__**", description=result, color=discord.Colour.random())
                     hook.send(embed=embed)
 
             elif message_data['type'] == 'answered':
                 name = message_data["username"]
                 ansid = message_data["answerId"]
                 if ansid == id1:
-                    embed = discord.Embed(title=f"**{name} went Option - 1**", color=0x00ff00)
+                    embed = discord.Embed(title=f"**{name} went Option - 1**", color=discord.Colour.random())
                     hook.send(embed=embed)
                 elif ansid == id2:
-                    embed = discord.Embed(title=f"**{name} went Option - 2**", color=0x00ff00)
+                    embed = discord.Embed(title=f"**{name} went Option - 2**", color=discord.Colour.random())
                     hook.send(embed=embed)
                 else:
-                    embed = discord.Embed(title=f"**{name} went Option - 3**", color=0x00ff00)
+                    embed = discord.Embed(title=f"**{name} went Option - 3**", color=discord.Colour.random())
                     hook.send(embed=embed)
 
             elif message_data["type"] == "questionClosed":
-                embed=discord.Embed(title="⏰ **| Time,s Up!**", color=0xa1fc03)
+                embed=discord.Embed(title="⏰ **| Time,s Up!**", color=discord.Colour.random())
                 hook.send(embed=embed)
                     
             elif message_data["type"] == "questionSummary":
@@ -228,7 +228,7 @@ def connect_websocket(socket_url, auth_token):
                 pE = float("{:.2f}".format(percentEliminated))
                 if option1 == correct:
                     pattern.append("1")
-                    embd=discord.Embed(title=f"**Question {qcnt} out of {Fullcnt}**",  description=f"**[{question}]({google_query})**", color=0x4286f4)
+                    embd=discord.Embed(title=f"**Question {qcnt} out of {Fullcnt}**",  description=f"**[{question}]({google_query})**", color=discord.Colour.random())
                     embd.add_field(name="**Correct Answer :-**", value=f"**Option 1️⃣. {correct}**")
                     embd.add_field(name="**Status :-**", value=f"**● Advancing Players : {advancing} ({pA}%)**\n**● Eliminated  Players : {eliminated} ({pE}%)\n● Current Payout : ${payout}**", inline=True)
                     embd.add_field(name="**Current Pattern :-**", value=pattern)
@@ -236,7 +236,7 @@ def connect_websocket(socket_url, auth_token):
                     hook.send(embed=embd)
                 elif option2 == correct:
                     pattern.append("2")
-                    embd=discord.Embed(title=f"**Question {qcnt} out of {Fullcnt}**",  description=f"**[{question}]({google_query})**", color=0x4286f4)
+                    embd=discord.Embed(title=f"**Question {qcnt} out of {Fullcnt}**",  description=f"**[{question}]({google_query})**", color=discord.Colour.random())
                     embd.add_field(name="**Correct Answer :-**", value=f"**Option 2️⃣. {correct}**")
                     embd.add_field(name="**Status :-**", value=f"**● Advancing Players : {advancing} ({pA}%)**\n**● Eliminated  Players : {eliminated} ({pE}%)\n● Current Payout : ${payout}**", inline=True)
                     embd.add_field(name="**Current Pattern :-**", value=pattern)
@@ -244,7 +244,7 @@ def connect_websocket(socket_url, auth_token):
                     hook.send(embed=embd)
                 else:
                     pattern.append("3")
-                    embd=discord.Embed(title=f"**Question {qcnt} out of {Fullcnt}**",  description=f"**[{question}]({google_query})**", color=0x4286f4)
+                    embd=discord.Embed(title=f"**Question {qcnt} out of {Fullcnt}**",  description=f"**[{question}]({google_query})**", color=discord.Colour.random())
                     embd.add_field(name="**Correct Answer :-**", value=f"**Option 3️⃣. {correct}**")
                     embd.add_field(name="**Status :-**", value=f"**● Advancing Players : {advancing} ({pA}%)**\n**● Eliminated  Players : {eliminated} ({pE}%)\n● Current Payout : ${payout}**", inline=True)
                     embd.add_field(name="**Current Pattern :-**", value=pattern)
@@ -255,7 +255,7 @@ def connect_websocket(socket_url, auth_token):
                 winn = message_data['numWinners']
                 prizeMoney = str(message_data["winners"][0]["prize"])
                 print(message_data)
-                embed=discord.Embed(title="**__Game Summary !__**",description=f"**● Payout : {prizeMoney}\n● Total Winners : {winn}\n● Prize Money : $5,000**",color=0x00FBFF)
+                embed=discord.Embed(title="**__Game Summary !__**",description=f"**● Payout : {prizeMoney}\n● Total Winners : {winn}\n● Prize Money : $5,000**", color=discord.Colour.random())
                 embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/737764195743039488/737768505935659178/giphy1.gif")
                 #embed.set_footer(text=f"HQ Google | HQ Friends")
                 hook.send(embed=embed)
@@ -287,7 +287,7 @@ def get_auth_token():
 while True:
     if show_active():
         url = get_socket_url()
-        embed = discord.Embed(title="**Websocket Connected!**", color=discord.Colour.random())
+        embed = discord.Embed(title="**Game is Live! Websocket Successfully Connected!**", color=discord.Colour.random())
         hook.send(embed=embed)
 
         token = get_auth_token()
