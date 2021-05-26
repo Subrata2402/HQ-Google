@@ -269,8 +269,6 @@ def get_auth_token():
 while True:
     if show_active():
         url = get_socket_url()
-        embed = discord.Embed(title="**Game is Live!**", color=discord.Colour.random())
-        hook.send(embed=embed)
 
         token = get_auth_token()
         if token == 'None':
