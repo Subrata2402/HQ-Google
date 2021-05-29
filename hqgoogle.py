@@ -136,11 +136,11 @@ def connect_websocket(socket_url, auth_token):
                 id3 = message_data["answers"][2]["answerId"]
 
                 embed=discord.Embed(title=f"**Question {qcnt} out of {Fullcnt}**",  description=f"**[{question}]({google_query})**\n\n")
-                embed.add_field(name="**Option -１**", value=f"**[{answers[0]}]({google_query})**", inline=True)
-                embed.add_field(name="**Option -２**", value=f"**[{answers[1]}]({google_query})**", inline=True)
-                embed.add_field(name="**Option -３**", value=f"**[{answers[2]}]({google_query})**", inline=True)
+                #embed.add_field(name="**Option -１**", value=f"**[{answers[0]}]({google_query})**", inline=True)
+                #embed.add_field(name="**Option -２**", value=f"**[{answers[1]}]({google_query})**", inline=True)
+                #embed.add_field(name="**Option -３**", value=f"**[{answers[2]}]({google_query})**", inline=True)
                 #embed.set_footer(text="HQ Google")
-                embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/775385127021969418/816118599869005866/1200px-HQ_logo.svg.png")
+                #embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/775385127021969418/816118599869005866/1200px-HQ_logo.svg.png")
                 hook.send(embed=embed)
 
                 option1=f"{answers[0]}"
@@ -161,19 +161,19 @@ def connect_websocket(socket_url, auth_token):
                     #embed2.add_field(name="**Google Answer :-**", value=f"**Option １. {answers[0]}**")
                     #embed2.set_footer(text="HQ Google | HQ Friends")
                     hook.send(embed=embed2)
-                    #hook.send("*")
+                    hook.send("*")
                 elif countoption2 == maxcount:
                     embed2=discord.Embed(title=f"**__Google Results !__**", description=f"**１. {answers[0]} :** **{countoption1}**\n**２. {answers[1]} :** **{countoption2}** ✅\n**３. {answers[2]} :** **{countoption3}**")
                     #embed2.add_field(name="**Google Answer :-**", value=f"**Option ２. {answers[1]}**")
                     #embed2.set_footer(text="HQ Google | HQ Friends")
                     hook.send(embed=embed2)
-                    #hook.send("*")
+                    hook.send("*")
                 else:
                     embed2=discord.Embed(title=f"**__Google Results !__**", description=f"**１. {answers[0]} :** **{countoption1}**\n**２. {answers[1]} :** **{countoption2}**\n**３. {answers[2]} :** **{countoption3}** ✅")
                     #embed2.add_field(name="**Google Answer :-**", value=f"**Option ３. {answers[2]}**")
                     #embed2.set_footer(text="HQ Google | HQ Friends")
                     hook.send(embed=embed2)
-                   # hook.send("*")
+                    hook.send("*")
 
                 r = requests.get(google_query)
                 soup = BeautifulSoup(r.text , "html.parser")
@@ -191,18 +191,6 @@ def connect_websocket(socket_url, auth_token):
                     embed=Embed(title=f"**__Direct Search Result !__**", description=result)
                     hook.send(embed=embed)
 
-            elif message_data['type'] == 'answered':
-                name = message_data["username"]
-                ansid = message_data["answerId"]
-                if ansid == id1:
-                    embed = discord.Embed(title=f"**{name} went Option - 1**")
-                    hook.send(embed=embed)
-                elif ansid == id2:
-                    embed = discord.Embed(title=f"**{name} went Option - 2**")
-                    hook.send(embed=embed)
-                else:
-                    embed = discord.Embed(title=f"**{name} went Option - 3**")
-                    hook.send(embed=embed)
 
             elif message_data["type"] == "questionClosed":
                 embed=discord.Embed(title="⏰ **| Time,s Up!**")
