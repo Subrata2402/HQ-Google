@@ -144,12 +144,9 @@ def connect_websocket(socket_url, auth_token):
                 #embed.add_field(name="**Option -３**", value=f"**[{answers[2]}]({google_query})**", inline=True)
                 embed.set_footer(text="HQ Google")
                 embed.timestamp = datetime.utcnow()
-                #embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/775385127021969418/816118599869005866/1200px-HQ_logo.svg.png")
+                embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/775385127021969418/816118599869005866/1200px-HQ_logo.svg.png")
                 hook.send(embed=embed)
 
-                option1=f"{answers[0]}"
-                option2=f"{answers[1]}"
-                option3=f"{answers[2]}"
                 r = requests.get(swa)
                 soup = BeautifulSoup(r.text, 'html.parser')
                 response = soup.find_all("span", class_="st")
@@ -163,19 +160,22 @@ def connect_websocket(socket_url, auth_token):
                 if countoption1 == maxcount:
                     embed2=discord.Embed(title=f"**__Google Results !__**", description=f"**１. {answers[0]} :** **{countoption1}** ✅\n**２. {answers[1]} :** **{countoption2}**\n**３. {answers[2]} :** **{countoption3}**")
                     #embed2.add_field(name="**Google Answer :-**", value=f"**Option １. {answers[0]}**")
-                    embed2.set_footer(text="HQ Google | HQ Friends")
+                    embed2.set_footer(text="HQ Google")
+                    embed2.timestamp = datetime.utcnow()
                     hook.send(embed=embed2)
                     
                 elif countoption2 == maxcount:
                     embed2=discord.Embed(title=f"**__Google Results !__**", description=f"**１. {answers[0]} :** **{countoption1}**\n**２. {answers[1]} :** **{countoption2}** ✅\n**３. {answers[2]} :** **{countoption3}**")
                     #embed2.add_field(name="**Google Answer :-**", value=f"**Option ２. {answers[1]}**")
-                    #embed2.set_footer(text="HQ Google | HQ Friends")
+                    embed2.set_footer(text="HQ Google")
+                    embed2.timestamp = datetime.utcnow()
                     hook.send(embed=embed2)
                     
                 else:
                     embed2=discord.Embed(title=f"**__Google Results !__**", description=f"**１. {answers[0]} :** **{countoption1}**\n**２. {answers[1]} :** **{countoption2}**\n**３. {answers[2]} :** **{countoption3}** ✅")
                     #embed2.add_field(name="**Google Answer :-**", value=f"**Option ３. {answers[2]}**")
-                    #embed2.set_footer(text="HQ Google | HQ Friends")
+                    embed2.set_footer(text="HQ Google")
+                    embed2.timestamp = datetime.utcnow()
                     hook.send(embed=embed2)
                     
                 hook.send("*")
@@ -237,7 +237,8 @@ def connect_websocket(socket_url, auth_token):
                 #embd.add_field(name="**Correct Answer :-**", value=f"**{correct}**")
                 embd.add_field(name="**Status :-**", value=f"**● Advancing Players : {advancing} ({pA}%)**\n**● Eliminated  Players : {eliminated} ({pE}%)\n● Current Payout : ${payout}**", inline=True)
                 #embd.add_field(name="**Current Pattern :-**", value=pattern)
-                #embd.set_footer(text=f"HQ Google | HQ Friends")
+                embed.set_footer(text="HQ Google")
+                embed.timestamp = datetime.utcnow()
                 hook.send(embed=embd)
                 
             elif message_data["type"] == "gameSummary":
@@ -246,7 +247,8 @@ def connect_websocket(socket_url, auth_token):
                 print(message_data)
                 embed=discord.Embed(title="**__Game Summary !__**",description=f"**● Payout : {prizeMoney}\n● Total Winners : {winn}\n● Prize Money : $5,000**")
                 embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/737764195743039488/737768505935659178/giphy1.gif")
-                #embed.set_footer(text=f"HQ Google | HQ Friends")
+                embed.set_footer(text="HQ Google")
+                embed.timestamp = datetime.utcnow()
                 hook.send(embed=embed)
                 
 
