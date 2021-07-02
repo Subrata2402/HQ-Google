@@ -88,6 +88,8 @@ def show_not_on():
             print(x_in)
             print(prize)
             embed=discord.Embed(title=f"➜〢Date – {x_in}\n➜〢Time – {x_i}AM\n➜〢Prize Money – {prize}", color=0x000000)
+            embed.set_footer(text="HQ Google")
+            embed.timestamp = datetime.utcnow()
             hq.send(embed=embed)
 
 
@@ -131,22 +133,24 @@ def connect_websocket(socket_url, auth_token):
                 answers = [unidecode(ans["text"]) for ans in message_data["answers"]]
                 real_question = str(question).replace(" ","+")
                 google_query = "https://google.com/search?q="+real_question
-                id1 = message_data["answers"][0]["answerId"]
-                id2 = message_data["answers"][1]["answerId"]
-                id3 = message_data["answers"][2]["answerId"]
-
-                embed=discord.Embed(title=f"**Question {qcnt} out of {Fullcnt}**",  description=f"**[{question}]({google_query})**\n\n")
+                option1=f"{answers[0]}"
+                option2=f"{answers[1]}"
+                option3=f"{answers[2]}"
+                opt = str(f"{option1} {option2} {option3}").replace(" ","+")
+                swa = "https://google.com/search?q="+real_question+"+"+opt
+                embed=discord.Embed(title=f"**Question {qcnt} out of {Fullcnt}**",  description=f"**[{question}]({google_query})**\n\n[Search with all options]({swa})")
                 #embed.add_field(name="**Option -１**", value=f"**[{answers[0]}]({google_query})**", inline=True)
                 #embed.add_field(name="**Option -２**", value=f"**[{answers[1]}]({google_query})**", inline=True)
                 #embed.add_field(name="**Option -３**", value=f"**[{answers[2]}]({google_query})**", inline=True)
-                #embed.set_footer(text="HQ Google")
+                embed.set_footer(text="HQ Google")
+                embed.timestamp = datetime.utcnow()
                 #embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/775385127021969418/816118599869005866/1200px-HQ_logo.svg.png")
                 hook.send(embed=embed)
 
                 option1=f"{answers[0]}"
                 option2=f"{answers[1]}"
                 option3=f"{answers[2]}"
-                r = requests.get("http://google.co.in/search?q=" + question + option1 + option2 + option3)
+                r = requests.get(swa)
                 soup = BeautifulSoup(r.text, 'html.parser')
                 response = soup.find_all("span", class_="st")
                 res = str(r.text)
@@ -159,21 +163,36 @@ def connect_websocket(socket_url, auth_token):
                 if countoption1 == maxcount:
                     embed2=discord.Embed(title=f"**__Google Results !__**", description=f"**１. {answers[0]} :** **{countoption1}** ✅\n**２. {answers[1]} :** **{countoption2}**\n**３. {answers[2]} :** **{countoption3}**")
                     #embed2.add_field(name="**Google Answer :-**", value=f"**Option １. {answers[0]}**")
-                    #embed2.set_footer(text="HQ Google | HQ Friends")
+                    embed2.set_footer(text="HQ Google | HQ Friends")
                     hook.send(embed=embed2)
-                    hook.send("*")
+                    
                 elif countoption2 == maxcount:
                     embed2=discord.Embed(title=f"**__Google Results !__**", description=f"**１. {answers[0]} :** **{countoption1}**\n**２. {answers[1]} :** **{countoption2}** ✅\n**３. {answers[2]} :** **{countoption3}**")
                     #embed2.add_field(name="**Google Answer :-**", value=f"**Option ２. {answers[1]}**")
                     #embed2.set_footer(text="HQ Google | HQ Friends")
                     hook.send(embed=embed2)
-                    hook.send("*")
+                    
                 else:
                     embed2=discord.Embed(title=f"**__Google Results !__**", description=f"**１. {answers[0]} :** **{countoption1}**\n**２. {answers[1]} :** **{countoption2}**\n**３. {answers[2]} :** **{countoption3}** ✅")
                     #embed2.add_field(name="**Google Answer :-**", value=f"**Option ３. {answers[2]}**")
                     #embed2.set_footer(text="HQ Google | HQ Friends")
                     hook.send(embed=embed2)
-                    hook.send("*")
+                    
+                hook.send("*")
+                r = requests.get(swa)
+                soup = BeautifulSoup(r.text , "html.parser")
+                result = soup.find("div" , class_='BNeawe').text
+                if option1 in result:
+                    embed=Embed(title=f"**__Option 1. {option1}__**", description=result)
+                    hook.send(embed=embed)
+                elif option2 in result:
+                    embed=Embed(title=f"**__Option 2. {option2}__**", description=result)
+                    hook.send(embed=embed)
+                elif option3 in result:
+                    embed=Embed(title=f"**__Option 3. {option3}__**", description=result)
+                    hook.send(embed=embed)
+                else:
+                    pass
 
                 r = requests.get(google_query)
                 soup = BeautifulSoup(r.text , "html.parser")
