@@ -139,9 +139,9 @@ def connect_websocket(socket_url, auth_token):
                 opt = str(f"{option1} {option2} {option3}").replace(" ","+")
                 swa = "https://google.com/search?q="+real_question+"+"+opt
                 embed=discord.Embed(title=f"**Question {qcnt} out of {Fullcnt}**",  description=f"**[{question}]({google_query})**\n\n[Search with all options]({swa})")
-                #embed.add_field(name="**Option -１**", value=f"**[{answers[0]}]({google_query})**", inline=True)
-                #embed.add_field(name="**Option -２**", value=f"**[{answers[1]}]({google_query})**", inline=True)
-                #embed.add_field(name="**Option -３**", value=f"**[{answers[2]}]({google_query})**", inline=True)
+                embed.add_field(name="**Option -１**", value=f"**[{answers[0]}]({google_query})**", inline=True)
+                embed.add_field(name="**Option -２**", value=f"**[{answers[1]}]({google_query})**", inline=True)
+                embed.add_field(name="**Option -３**", value=f"**[{answers[2]}]({google_query})**", inline=True)
                 embed.set_footer(text="HQ Google")
                 embed.timestamp = datetime.utcnow()
                 embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/775385127021969418/816118599869005866/1200px-HQ_logo.svg.png")
@@ -233,13 +233,33 @@ def connect_websocket(socket_url, auth_token):
                 percentEliminated = (int(eliminated)*(100))/(int(total))
                 pE = float("{:.2f}".format(percentEliminated))
   
-                embd=discord.Embed(title="**Correct Answer :-**",  description=f"**{correct}**")
-                #embd.add_field(name="**Correct Answer :-**", value=f"**{correct}**")
-                embd.add_field(name="**Status :-**", value=f"**● Advancing Players : {advancing} ({pA}%)**\n**● Eliminated  Players : {eliminated} ({pE}%)\n● Current Payout : ${payout}**", inline=True)
-                #embd.add_field(name="**Current Pattern :-**", value=pattern)
-                embed.set_footer(text="HQ Google")
-                embed.timestamp = datetime.utcnow()
-                hook.send(embed=embd)
+                if option1 == correct:
+                   # pattern.append("1")
+                    embd=discord.Embed(title=f"**Question {qcnt} out of {Fullcnt}**",  description=f"**[{question}]({google_query})**", color=discord.Colour.random())
+                    embd.add_field(name="**Correct Answer :-**", value=f"**Option 1️⃣. {correct}**")
+                    embd.add_field(name="**Status :-**", value=f"**● Advancing Players : {advancing} ({pA}%)**\n**● Eliminated  Players : {eliminated} ({pE}%)\n● Current Payout : ${payout}**", inline=True)
+                    embd.add_field(name="**Current Pattern :-**", value=pattern)
+                    embd.set_footer(text="HQ Google")
+                    embd.timestamp = datetime.utcnow()
+                    hook.send(embed=embd)
+                elif option2 == correct:
+                   # pattern.append("2")
+                    embd=discord.Embed(title=f"**Question {qcnt} out of {Fullcnt}**",  description=f"**[{question}]({google_query})**", color=discord.Colour.random())
+                    embd.add_field(name="**Correct Answer :-**", value=f"**Option 2️⃣. {correct}**")
+                    embd.add_field(name="**Status :-**", value=f"**● Advancing Players : {advancing} ({pA}%)**\n**● Eliminated  Players : {eliminated} ({pE}%)\n● Current Payout : ${payout}**", inline=True)
+                    embd.add_field(name="**Current Pattern :-**", value=pattern)
+                    embd.set_footer(text="HQ Google")
+                    embd.timestamp = datetime.utcnow()
+                    hook.send(embed=embd)
+                else:
+                   # pattern.append("3")
+                    embd=discord.Embed(title=f"**Question {qcnt} out of {Fullcnt}**",  description=f"**[{question}]({google_query})**", color=discord.Colour.random())
+                    embd.add_field(name="**Correct Answer :-**", value=f"**Option 3️⃣. {correct}**")
+                    embd.add_field(name="**Status :-**", value=f"**● Advancing Players : {advancing} ({pA}%)**\n**● Eliminated  Players : {eliminated} ({pE}%)\n● Current Payout : ${payout}**", inline=True)
+                    embd.add_field(name="**Current Pattern :-**", value=pattern)
+                    embd.set_footer(text="HQ Google")
+                    embd.timestamp = datetime.utcnow()
+                    hook.send(embed=embd)
                 
             elif message_data["type"] == "gameSummary":
                 winn = message_data['numWinners']
