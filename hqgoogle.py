@@ -21,9 +21,9 @@ from time import sleep
 
 
 
-webhook_url="https://discordapp.com/api/webhooks/838850742575824966/-DN36GNIQgY3cVaESJI8aEE88BCrXoxrZWT0Z97KDe1I7-p4Fru5-tOudRcmq8JhTnRr"
+webhook_url="https://discordapp.com/api/webhooks/838421331023233045/-AW8Pfv6d1wcHrn6npWAfTzmimAGFE-vxdjoHUiAjHmnTiXUe1OqpHDMOZghW8MrS15b"
 
-we="https://discordapp.com/api/webhooks/838850742575824966/-DN36GNIQgY3cVaESJI8aEE88BCrXoxrZWT0Z97KDe1I7-p4Fru5-tOudRcmq8JhTnRr"
+we="https://discordapp.com/api/webhooks/860329004052643862/dcooCG5f9ZHzkbSO4OUNXORcju6iXKiIQTmsH3g-D7sdt6KmabAdqrxNaCrPYQ4vwsXd"
 
 
 try:
