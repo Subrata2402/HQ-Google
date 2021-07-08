@@ -22,19 +22,12 @@ pattern = []
 
 webhook_url="https://discordapp.com/api/webhooks/838421331023233045/-AW8Pfv6d1wcHrn6npWAfTzmimAGFE-vxdjoHUiAjHmnTiXUe1OqpHDMOZghW8MrS15b"
 
-we="https://discordapp.com/api/webhooks/862730520575737896/pTGOk-grdBMCS359avPrDXesy0Yk2rZertwnntwnhT6X2yOw8e0J4jPg0hSYFWxg6en9"
 
 
 try:
     hook = Webhook(webhook_url)
 except:
     print("Invalid WebHook Url!")
-
-
-try:
-    hq = Webhook(we)
-except:
-    print("Invalid WebHook Url Lol")
 
 
 
@@ -89,7 +82,6 @@ def show_not_on():
             embed=discord.Embed(title=f"➜〢Date – {x_in}\n➜〢Time – {x_i}AM\n➜〢Prize Money – {prize}", color=0x000000)
             embed.set_footer(text="HQ Google")
             embed.timestamp = datetime.utcnow()
-            hq.send(embed=embed)
 
 
 
