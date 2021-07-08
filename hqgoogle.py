@@ -22,7 +22,7 @@ pattern = []
 
 webhook_url="https://discordapp.com/api/webhooks/838421331023233045/-AW8Pfv6d1wcHrn6npWAfTzmimAGFE-vxdjoHUiAjHmnTiXUe1OqpHDMOZghW8MrS15b"
 
-we="https://discordapp.com/api/webhooks/860329004052643862/dcooCG5f9ZHzkbSO4OUNXORcju6iXKiIQTmsH3g-D7sdt6KmabAdqrxNaCrPYQ4vwsXd"
+we="https://discordapp.com/api/webhooks/862730520575737896/pTGOk-grdBMCS359avPrDXesy0Yk2rZertwnntwnhT6X2yOw8e0J4jPg0hSYFWxg6en9"
 
 
 try:
