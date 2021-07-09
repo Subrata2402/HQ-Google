@@ -223,6 +223,7 @@ def connect_websocket(socket_url, auth_token):
                     embd.add_field(name="**Ongoing Pattern :-**", value=f"**{pattern}**")
                     embd.set_footer(text="HQ Google")
                     embd.timestamp = datetime.utcnow()
+                    embd.set_thumbnail(url="https://cdn.discordapp.com/attachments/775385127021969418/816118599869005866/1200px-HQ_logo.svg.png")
                     hook.send(embed=embd)
                 elif option2 == correct:
                     pattern.append("2")
@@ -232,6 +233,7 @@ def connect_websocket(socket_url, auth_token):
                     embd.add_field(name="**Ongoing Pattern :-**", value=f"**{pattern}**")
                     embd.set_footer(text="HQ Google")
                     embd.timestamp = datetime.utcnow()
+                    embd.set_thumbnail(url="https://cdn.discordapp.com/attachments/775385127021969418/816118599869005866/1200px-HQ_logo.svg.png")
                     hook.send(embed=embd)
                 else:
                     pattern.append("3")
@@ -241,6 +243,7 @@ def connect_websocket(socket_url, auth_token):
                     embd.add_field(name="**Ongoing Pattern :-**", value=f"**{pattern}**")
                     embd.set_footer(text="HQ Google")
                     embd.timestamp = datetime.utcnow()
+                    embd.set_thumbnail(url="https://cdn.discordapp.com/attachments/775385127021969418/816118599869005866/1200px-HQ_logo.svg.png")
                     hook.send(embed=embd)
                 
             elif message_data["type"] == "gameSummary":
