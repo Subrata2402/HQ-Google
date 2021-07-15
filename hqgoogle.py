@@ -20,7 +20,7 @@ from time import sleep
 pattern = []
 
 
-webhook_url="https://discordapp.com/api/webhooks/838421331023233045/-AW8Pfv6d1wcHrn6npWAfTzmimAGFE-vxdjoHUiAjHmnTiXUe1OqpHDMOZghW8MrS15b"
+webhook_url="https://discordapp.com/api/webhooks/864450368250052608/3wn4SOeoISXcohxvmwhTe8OCj7iU4Xqy8WFb1ol5OiqRpST_eFJKq0Bz-dUBJbEUhDmD"
 
 
 
