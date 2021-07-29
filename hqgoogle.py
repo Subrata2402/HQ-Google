@@ -211,8 +211,7 @@ def connect_websocket(socket_url, auth_token):
                     embed=discord.Embed(title=f"**__Option ３. {option3}__**", description=result, color=0x000000)
                     hook.send(embed=embed)
                 else:
-                    embed=Embed(title=f"**__Direct Search Result !__**", description=result, color=0x000000)
-                    hook.send(embed=embed)
+                    pass
 
 
             elif message_data["type"] == "questionClosed":
@@ -279,15 +278,6 @@ def connect_websocket(socket_url, auth_token):
                 hook.send(embed=embed)
                 
 
-
-
-
-"""
-def open_browser(question):
-
-    main_url = "https://www.google.co.in/search?q=" + question
-    webbrowser.open_new(main_url)
-"""
 
 def get_auth_token():
     with open(os.path.join(os.path.dirname(os.path.abspath(__file__)), "BTOKEN.txt"), "r") as conn_settings:
