@@ -20,7 +20,7 @@ from time import sleep
 pattern = []
 
 
-webhook_url="https://discordapp.com/api/webhooks/864450368250052608/3wn4SOeoISXcohxvmwhTe8OCj7iU4Xqy8WFb1ol5OiqRpST_eFJKq0Bz-dUBJbEUhDmD"
+webhook_url="https://discordapp.com/api/webhooks/870334998333505546/qpn6Ist-f0psDdmlHzQDVg7ScrdJh2SpnYz7bkN_nqR8Gz677HbLV2_ag6krsEUauIx4"
 
 
 
@@ -138,6 +138,28 @@ def connect_websocket(socket_url, auth_token):
                 embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/775385127021969418/816118599869005866/1200px-HQ_logo.svg.png")
                 hook.send(embed=embed)
 
+                r = requests.get(google_query)
+                soup = BeautifulSoup(r.text, 'html.parser')
+                response = soup.find_all("span", class_="st")
+                res = str(r.text)
+                countoption1 = res.count(option1)
+                countoption2 = res.count(option2)
+                countoption3 = res.count(option3)
+                maxcount = max(countoption1, countoption2, countoption3)
+                sumcount = countoption1+countoption2+countoption3
+                
+                if countoption1 == maxcount:
+                    embed2=discord.Embed(title=f"**__Google Results １__**", description=f"**１. {option1} :** **{countoption1}** ✅\n**２. {option2} :** **{countoption2}**\n**３. {option3} :** **{countoption3}**", color=0x000000)
+                    hook.send(embed=embed2)
+                    
+                elif countoption2 == maxcount:
+                    embed2=discord.Embed(title=f"**__Google Results １__**", description=f"**１. {option1} :** **{countoption1}**\n**２. {option2} :** **{countoption2}** ✅\n**３. {option3} :** **{countoption3}**", color=0x000000)
+                    hook.send(embed=embed2)
+                    
+                else:
+                    embed2=discord.Embed(title=f"**__Google Results １__**", description=f"**１. {option1} :** **{countoption1}**\n**２. {option2} :** **{countoption2}**\n**３. {option3} :** **{countoption3}** ✅", color=0x000000)
+                    hook.send(embed=embed2)
+
                 r = requests.get(swa)
                 soup = BeautifulSoup(r.text, 'html.parser')
                 response = soup.find_all("span", class_="st")
@@ -149,18 +171,18 @@ def connect_websocket(socket_url, auth_token):
                 sumcount = countoption1+countoption2+countoption3
                 
                 if countoption1 == maxcount:
-                    embed2=discord.Embed(title=f"**__Google Results !__**", description=f"**１. {option1} :** **{countoption1}** ✅\n**２. {option2} :** **{countoption2}**\n**３. {option3} :** **{countoption3}**", color=0x000000)
+                    embed2=discord.Embed(title=f"**__Google Results 2__**", description=f"**１. {option1} :** **{countoption1}** ✅\n**２. {option2} :** **{countoption2}**\n**３. {option3} :** **{countoption3}**", color=0x000000)
                     hook.send(embed=embed2)
                     
                 elif countoption2 == maxcount:
-                    embed2=discord.Embed(title=f"**__Google Results !__**", description=f"**１. {option1} :** **{countoption1}**\n**２. {option2} :** **{countoption2}** ✅\n**３. {option3} :** **{countoption3}**", color=0x000000)
+                    embed2=discord.Embed(title=f"**__Google Results 2__**", description=f"**１. {option1} :** **{countoption1}**\n**２. {option2} :** **{countoption2}** ✅\n**３. {option3} :** **{countoption3}**", color=0x000000)
                     hook.send(embed=embed2)
                     
                 else:
-                    embed2=discord.Embed(title=f"**__Google Results !__**", description=f"**１. {option1} :** **{countoption1}**\n**２. {option2} :** **{countoption2}**\n**３. {option3} :** **{countoption3}** ✅", color=0x000000)
+                    embed2=discord.Embed(title=f"**__Google Results 2__**", description=f"**１. {option1} :** **{countoption1}**\n**２. {option2} :** **{countoption2}**\n**３. {option3} :** **{countoption3}** ✅", color=0x000000)
                     hook.send(embed=embed2)
                     
-                hook.send("*")
+                hook.send("hq")
                 r = requests.get(swa)
                 soup = BeautifulSoup(r.text , "html.parser")
                 result = soup.find("div" , class_='BNeawe').text
