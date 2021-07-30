@@ -82,7 +82,7 @@ def show_not_on():
             embed=discord.Embed(title=f"➜〢Date – {x_in}\n➜〢Time – {x_i}AM\n➜〢Prize Money – {prize}", color=0x000000)
             embed.set_footer(text="HQ Google")
             embed.timestamp = datetime.utcnow()
-
+            hook.send(embed=embed)
 
 
 def show_active():
@@ -149,15 +149,15 @@ def connect_websocket(socket_url, auth_token):
                 sumcount = countoption1+countoption2+countoption3
                 
                 if countoption1 == maxcount:
-                    embed2=discord.Embed(title=f"**__Google Results １__**", description=f"**１. {option1} :** **{countoption1}** ✅\n**２. {option2} :** **{countoption2}**\n**３. {option3} :** **{countoption3}**", color=0x000000)
+                    embed2=discord.Embed(title=f"**__Google Results -１__**", description=f"**１. {option1} :** **{countoption1}** ✅\n**２. {option2} :** **{countoption2}**\n**３. {option3} :** **{countoption3}**", color=0x000000)
                     hook.send(embed=embed2)
                     
                 elif countoption2 == maxcount:
-                    embed2=discord.Embed(title=f"**__Google Results １__**", description=f"**１. {option1} :** **{countoption1}**\n**２. {option2} :** **{countoption2}** ✅\n**３. {option3} :** **{countoption3}**", color=0x000000)
+                    embed2=discord.Embed(title=f"**__Google Results -１__**", description=f"**１. {option1} :** **{countoption1}**\n**２. {option2} :** **{countoption2}** ✅\n**３. {option3} :** **{countoption3}**", color=0x000000)
                     hook.send(embed=embed2)
                     
                 else:
-                    embed2=discord.Embed(title=f"**__Google Results １__**", description=f"**１. {option1} :** **{countoption1}**\n**２. {option2} :** **{countoption2}**\n**３. {option3} :** **{countoption3}** ✅", color=0x000000)
+                    embed2=discord.Embed(title=f"**__Google Results -１__**", description=f"**１. {option1} :** **{countoption1}**\n**２. {option2} :** **{countoption2}**\n**３. {option3} :** **{countoption3}** ✅", color=0x000000)
                     hook.send(embed=embed2)
 
                 r = requests.get(swa)
@@ -171,15 +171,15 @@ def connect_websocket(socket_url, auth_token):
                 sumcount = countoption1+countoption2+countoption3
                 
                 if countoption1 == maxcount:
-                    embed2=discord.Embed(title=f"**__Google Results 2__**", description=f"**１. {option1} :** **{countoption1}** ✅\n**２. {option2} :** **{countoption2}**\n**３. {option3} :** **{countoption3}**", color=0x000000)
+                    embed2=discord.Embed(title=f"**__Google Results -２__**", description=f"**１. {option1} :** **{countoption1}** ✅\n**２. {option2} :** **{countoption2}**\n**３. {option3} :** **{countoption3}**", color=0x000000)
                     hook.send(embed=embed2)
                     
                 elif countoption2 == maxcount:
-                    embed2=discord.Embed(title=f"**__Google Results 2__**", description=f"**１. {option1} :** **{countoption1}**\n**２. {option2} :** **{countoption2}** ✅\n**３. {option3} :** **{countoption3}**", color=0x000000)
+                    embed2=discord.Embed(title=f"**__Google Results -２__**", description=f"**１. {option1} :** **{countoption1}**\n**２. {option2} :** **{countoption2}** ✅\n**３. {option3} :** **{countoption3}**", color=0x000000)
                     hook.send(embed=embed2)
                     
                 else:
-                    embed2=discord.Embed(title=f"**__Google Results 2__**", description=f"**１. {option1} :** **{countoption1}**\n**２. {option2} :** **{countoption2}**\n**３. {option3} :** **{countoption3}** ✅", color=0x000000)
+                    embed2=discord.Embed(title=f"**__Google Results -２__**", description=f"**１. {option1} :** **{countoption1}**\n**２. {option2} :** **{countoption2}**\n**３. {option3} :** **{countoption3}** ✅", color=0x000000)
                     hook.send(embed=embed2)
                     
                 hook.send("hq")
