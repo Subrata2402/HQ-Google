@@ -13,11 +13,16 @@ import colorama
 import requests
 import json
 import re
+from pymongo import MongoClient
 from bs4 import BeautifulSoup
 from dhooks import Webhook, Embed
 import aniso8601
 from time import sleep
 pattern = []
+
+data = MongoClient('mongodb+srv://Subrata2001:Subrata2001@cluster0.ywnwn.mongodb.net/Darboux?retryWrites=true&w=majority')
+db = data.get_database("Darboux")
+q_base = db.questions
 
 
 webhook_url="https://discordapp.com/api/webhooks/870334998333505546/qpn6Ist-f0psDdmlHzQDVg7ScrdJh2SpnYz7bkN_nqR8Gz677HbLV2_ag6krsEUauIx4"
@@ -137,7 +142,20 @@ def connect_websocket(socket_url, auth_token):
                 embed.timestamp = datetime.utcnow()
                 embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/775385127021969418/816118599869005866/1200px-HQ_logo.svg.png")
                 hook.send(embed=embed)
-
+                try:
+                    check = q_base.find_one({'question': question})
+                    if check != None:
+                        answer = q_base.find_one({'question': question})['answer']
+                        if answer == option1:
+                            ans = "１"
+                        elif answer == option2:
+                            ans = "２"
+                        else:
+                            ans = "３"
+                        embed=discord.Embed(title=f"**{ans}. {answer}**", color=0x000000)
+                        hook.send(embed=embed)
+                except:
+                    pass
                 r = requests.get(google_query)
                 soup = BeautifulSoup(r.text, 'html.parser')
                 response = soup.find_all("span", class_="st")
@@ -235,7 +253,15 @@ def connect_websocket(socket_url, auth_token):
                 pA = float("{:.2f}".format(percentAdvancing))
                 percentEliminated = (int(eliminated)*(100))/(int(total))
                 pE = float("{:.2f}".format(percentEliminated))
-  
+
+                try:
+                    check = q_base.find_one({'question': question})
+                    if check == None:
+                        questions_and_answer = {'question': question, 'answer': correct}
+                        q_base.insert_one(questions_and_answer)
+                except:
+                    pass
+
                 if option1 == correct:
                     pattern.append("1")
                     embd=discord.Embed(title=f"**Question {qcnt} out of {Fullcnt}**",  description=f"**[{question}]({google_query})**", color=0x000000)
