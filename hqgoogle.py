@@ -200,7 +200,7 @@ def connect_websocket(socket_url, auth_token):
                     embed2=discord.Embed(title=f"**__Google Results -２__**", description=f"**１. {option1} :** **{countoption1}**\n**２. {option2} :** **{countoption2}**\n**３. {option3} :** **{countoption3}** ✅", color=0x000000)
                     hook.send(embed=embed2)
                     
-                hook.send("hq")
+                #hook.send("hq")
                 r = requests.get(swa)
                 soup = BeautifulSoup(r.text , "html.parser")
                 result = soup.find("div" , class_='BNeawe').text
