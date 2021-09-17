@@ -25,7 +25,7 @@ db = data.get_database("Darboux")
 q_base = db.questions
 
 
-webhook_url="https://discordapp.com/api/webhooks/870334998333505546/qpn6Ist-f0psDdmlHzQDVg7ScrdJh2SpnYz7bkN_nqR8Gz677HbLV2_ag6krsEUauIx4"
+webhook_url="https://discordapp.com/api/webhooks/888227292109738024/6RY5AJtmUIY8-IXL1GajymbwcvLkYzL4lOHXasVZi1tlZdysnpED_NLFSCWTK3KMSjNZ"
 
 
 
@@ -87,7 +87,7 @@ def show_not_on():
             embed=discord.Embed(title=f"➜〢Date – {x_in}\n➜〢Time – {x_i}AM\n➜〢Prize Money – {prize}", color=0x000000)
             embed.set_footer(text="HQ Google")
             embed.timestamp = datetime.utcnow()
-            #hook.send(embed=embed)
+            hook.send(embed=embed)
 
 
 def show_active():
