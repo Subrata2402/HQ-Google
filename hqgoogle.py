@@ -134,8 +134,7 @@ def connect_websocket(socket_url, auth_token):
                 option3=f"{answers[2]}"
                 id1 = message_data["answers"][0]["answerId"]
                 id2 = message_data["answers"][1]["answerId"]
-                id3 = message_data["answers"][2]["answerId"] 
-
+                id3 = message_data["answers"][2]["answerId"]
                 opt = str(f"{option1} {option2} {option3}").replace(" ","+")
                 swa = "https://google.com/search?q="+real_question+"+"+opt
                 embed=discord.Embed(title=f"**Question {qcnt} out of {Fullcnt}**",  description=f"**[{question}]({google_query})\n\n[Search with all options]({swa})**", color=0x000000)
