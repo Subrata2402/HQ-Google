@@ -204,17 +204,17 @@ def connect_websocket(socket_url, auth_token):
                     hook.send(embed=embed2)
                     
                 elif message_data['type'] == 'answered':
-                name = message_data["username"]
-                ansid = message_data["answerId"]
-                if ansid == id1:
-                    embed = discord.Embed(title=f"{name} went Option - 1", color=0x000000)
-                    hook.send(embed=embed)
-                elif ansid == id2:
-                    embed = discord.Embed(title=f"{name} went Option - 2", color=0x000000)
-                    hook.send(embed=embed)
-                else:
-                    embed = discord.Embed(title=f"{name} went Option - 3", color=0x000000)
-                    hook.send(embed=embed) 
+                    name = message_data["username"]
+                    ansid = message_data["answerId"]
+                    if ansid == id1:
+                        embed = discord.Embed(title=f"{name} went Option - 1", color=0x000000)
+                        hook.send(embed=embed)
+                    elif ansid == id2:
+                        embed = discord.Embed(title=f"{name} went Option - 2", color=0x000000)
+                        hook.send(embed=embed)
+                    else:
+                        embed = discord.Embed(title=f"{name} went Option - 3", color=0x000000)
+                        hook.send(embed=embed)
 
 
                 #hook.send("hq")
