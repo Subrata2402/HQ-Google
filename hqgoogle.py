@@ -132,6 +132,10 @@ def connect_websocket(socket_url, auth_token):
                 option1=f"{answers[0]}"
                 option2=f"{answers[1]}"
                 option3=f"{answers[2]}"
+                id1 = message_data["answers"][0]["answerId"]
+                id2 = message_data["answers"][1]["answerId"]
+                id3 = message_data["answers"][2]["answerId"] 
+
                 opt = str(f"{option1} {option2} {option3}").replace(" ","+")
                 swa = "https://google.com/search?q="+real_question+"+"+opt
                 embed=discord.Embed(title=f"**Question {qcnt} out of {Fullcnt}**",  description=f"**[{question}]({google_query})\n\n[Search with all options]({swa})**", color=0x000000)
@@ -200,6 +204,20 @@ def connect_websocket(socket_url, auth_token):
                     embed2=discord.Embed(title=f"**__Google Results -２__**", description=f"**１. {option1} :** **{countoption1}**\n**２. {option2} :** **{countoption2}**\n**３. {option3} :** **{countoption3}** ✅", color=0x000000)
                     hook.send(embed=embed2)
                     
+                elif message_data['type'] == 'answered':
+                name = message_data["username"]
+                ansid = message_data["answerId"]
+                if ansid == id1:
+                    embed = discord.Embed(title=f"{name} went Option - 1", color=0x000000)
+                    hook.send(embed=embed)
+                elif ansid == id2:
+                    embed = discord.Embed(title=f"{name} went Option - 2", color=0x000000)
+                    hook.send(embed=embed)
+                else:
+                    embed = discord.Embed(title=f"{name} went Option - 3", color=0x000000)
+                    hook.send(embed=embed) 
+
+
                 #hook.send("hq")
                 r = requests.get(swa)
                 soup = BeautifulSoup(r.text , "html.parser")
