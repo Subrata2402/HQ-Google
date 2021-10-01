@@ -25,7 +25,7 @@ db = data.get_database("Darboux")
 q_base = db.questions
 
 
-webhook_url="https://discordapp.com/api/webhooks/888227292109738024/6RY5AJtmUIY8-IXL1GajymbwcvLkYzL4lOHXasVZi1tlZdysnpED_NLFSCWTK3KMSjNZ"
+webhook_url="https://discordapp.com/api/webhooks/870334998333505546/qpn6Ist-f0psDdmlHzQDVg7ScrdJh2SpnYz7bkN_nqR8Gz677HbLV2_ag6krsEUauIx4"
 
 
 
