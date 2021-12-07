@@ -20,12 +20,8 @@ import aniso8601
 from time import sleep
 pattern = []
 
-data = MongoClient('mongodb+srv://Subrata2001:Subrata2001@cluster0.ywnwn.mongodb.net/Darboux?retryWrites=true&w=majority')
-db = data.get_database("Darboux")
-q_base = db.questions
 
-
-webhook_url="https://discordapp.com/api/webhooks/893414392899710977/4i5rGJxvmHGTF82gRLffh5z8jno2yzNcub0ktmoTCVtp8RpW6Ud3NuAxBHsN2bGyv2Dx"
+webhook_url="webhook_url"
 
 
 
@@ -145,20 +141,7 @@ def connect_websocket(socket_url, auth_token):
                 embed.timestamp = datetime.utcnow()
                 embed.set_thumbnail(url="https://cdn.discordapp.com/attachments/775385127021969418/816118599869005866/1200px-HQ_logo.svg.png")
                 hook.send(embed=embed)
-                try:
-                    check = q_base.find_one({'question': question})
-                    if check != None:
-                        answer = q_base.find_one({'question': question})['answer']
-                        if answer == option1:
-                            ans = "１"
-                        elif answer == option2:
-                            ans = "２"
-                        else:
-                            ans = "３"
-                        embed=discord.Embed(title=f"**{ans}. {answer}**", color=0x000000)
-                        hook.send(embed=embed)
-                except:
-                    pass
+                
                 r = requests.get(google_query)
                 soup = BeautifulSoup(r.text, 'html.parser')
                 response = soup.find_all("span", class_="st")
@@ -180,45 +163,6 @@ def connect_websocket(socket_url, auth_token):
                 else:
                     embed2=discord.Embed(title=f"**__Google Results -１__**", description=f"**１. {option1} :** **{countoption1}**\n**２. {option2} :** **{countoption2}**\n**３. {option3} :** **{countoption3}** ✅", color=0x000000)
                     hook.send(embed=embed2)
-
-                r = requests.get(swa)
-                soup = BeautifulSoup(r.text, 'html.parser')
-                response = soup.find_all("span", class_="st")
-                res = str(r.text)
-                countoption1 = res.count(option1)
-                countoption2 = res.count(option2)
-                countoption3 = res.count(option3)
-                maxcount = max(countoption1, countoption2, countoption3)
-                sumcount = countoption1+countoption2+countoption3
-                
-                if countoption1 == maxcount:
-                    embed2=discord.Embed(title=f"**__Google Results -２__**", description=f"**１. {option1} :** **{countoption1}** ✅\n**２. {option2} :** **{countoption2}**\n**３. {option3} :** **{countoption3}**", color=0x000000)
-                    hook.send(embed=embed2)
-                    
-                elif countoption2 == maxcount:
-                    embed2=discord.Embed(title=f"**__Google Results -２__**", description=f"**１. {option1} :** **{countoption1}**\n**２. {option2} :** **{countoption2}** ✅\n**３. {option3} :** **{countoption3}**", color=0x000000)
-                    hook.send(embed=embed2)
-                    
-                else:
-                    embed2=discord.Embed(title=f"**__Google Results -２__**", description=f"**１. {option1} :** **{countoption1}**\n**２. {option2} :** **{countoption2}**\n**３. {option3} :** **{countoption3}** ✅", color=0x000000)
-                    hook.send(embed=embed2)
-
-
-                #hook.send("hq")
-                r = requests.get(swa)
-                soup = BeautifulSoup(r.text , "html.parser")
-                result = soup.find("div" , class_='BNeawe').text
-                if option1 in result:
-                    embed=discord.Embed(title=f"**__Option １. {option1}__**", description=result, color=0x000000)
-                    hook.send(embed=embed)
-                elif option2 in result:
-                    embed=discord.Embed(title=f"**__Option ２. {option2}__**", description=result, color=0x000000)
-                    hook.send(embed=embed)
-                elif option3 in result:
-                    embed=discord.Embed(title=f"**__Option ３. {option3}__**", description=result, color=0x000000)
-                    hook.send(embed=embed)
-                else:
-                    pass
 
                 r = requests.get(google_query)
                 soup = BeautifulSoup(r.text , "html.parser")
@@ -271,14 +215,7 @@ def connect_websocket(socket_url, auth_token):
                 percentEliminated = (int(eliminated)*(100))/(int(total))
                 pE = float("{:.2f}".format(percentEliminated))
 
-                try:
-                    check = q_base.find_one({'question': question})
-                    if check == None:
-                        questions_and_answer = {'question': question, 'answer': correct}
-                        q_base.insert_one(questions_and_answer)
-                except:
-                    pass
-
+                
                 if option1 == correct:
                     pattern.append("1")
                     embd=discord.Embed(title=f"**Question {qcnt} out of {Fullcnt}**",  description=f"**[{question}]({google_query})**", color=0x000000)
