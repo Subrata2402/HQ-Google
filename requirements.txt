@@ -8,5 +8,4 @@ colorama
 requests
 aniso8601
 pytz
-dnspython==2.0.0
-pymongo
+dhooks
