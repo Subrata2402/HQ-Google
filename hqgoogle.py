@@ -119,6 +119,7 @@ def connect_websocket(socket_url, auth_token):
                 print(message_data)
 
             if message_data['type'] == 'question':
+            	global question, qcnt, Fullcnt, option1, option2, option3, id1, id2, id3
                 question = message_data['question']
                 qcnt = message_data['questionNumber']
                 Fullcnt = message_data['questionCount']
@@ -176,8 +177,7 @@ def connect_websocket(socket_url, auth_token):
                 elif option3 in result:
                     embed=discord.Embed(title=f"**__Option ３. {option3}__**", description=result, color=0x000000)
                     hook.send(embed=embed)
-                else:
-                    pass
+                
 
             elif message_data['type'] == 'answered':
                 name = message_data["username"]
