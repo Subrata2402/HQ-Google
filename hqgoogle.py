@@ -280,7 +280,10 @@ while True:
         if token == 'None':
             print('Please enter a valid auth token.')
         else:
-            connect_websocket(url, token)
+            try:
+                connect_websocket(url, token)
+            except:
+                pass
 
     else:
         show_not_on()
