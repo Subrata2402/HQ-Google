@@ -11,9 +11,9 @@ hook = discord.Webhook.from_url(webhook_url, adapter = discord.RequestsWebhookAd
 
 main_url = "https://api-quiz.hype.space/shows/now"
 headers = {"Authorization": "Bearer " + bearer_token}
-response_data = requests.get(main_url).json()
 
 def show_not_on():
+	response_data = requests.get(main_url).json()
 	if not response_data.get("broadcast"):
 		if "error" in response_data and response_data["error"] == "Auth not valid":
 			raise RuntimeError("Connection settings invalid")
@@ -21,10 +21,11 @@ def show_not_on():
 			print("Show is not live")
 			
 def show_active():
-	print(response_data['active'])
+	response_data = requests.get(main_url).json()
 	return response_data['active']
 
 def connect_websocket():
+	response_data = requests.get(main_url).json()
 	socket_url = response_data['broadcast']['socketUrl'].replace('https', 'wss')
 	websocket = WebSocket(socket_url, headers = headers)
 	answer_ids, options = [], []
