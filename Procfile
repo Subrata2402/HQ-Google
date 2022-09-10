@@ -1,1 +1,1 @@
-worker: python hqgoogle.py
+worker: python main.py
