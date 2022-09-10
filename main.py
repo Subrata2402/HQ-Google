@@ -46,7 +46,7 @@ def connect_websocket():
 				answer_ids = [ans["answerId"] for ans in message_data["answers"]]
 				raw_question = str(question).replace(" ", "+")
 				google_question = "https://google.com/search?q=" + raw_question
-				u_options = "+or+".join(self.options)
+				u_options = "+or+".join(options)
 				raw_options = str(u_options).replace(" ", "+")
 				search_with_all = "https://google.com/search?q=" + raw_question + "+" + raw_options
 				
