@@ -2,7 +2,7 @@ import discord, time, requests, json
 from unidecode import unidecode
 from datetime import datetime
 
-webhook_url = "https://discord.com/api/webhooks/1009531446358188224/d6Ci6RO__ev00Gj4jmElQKL1S9imgiUY9dQ2GHFZbiXb0YYK29bZ7BwkyCx3TcRQ3JtA" # put here webhook url
+webhook_url = "" # put here webhook url
 bearer_token = "" # put here HQ Trivia bearer token
 icon_url = "" # put here HQ icon url
 pattern = list()
