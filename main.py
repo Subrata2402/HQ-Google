@@ -69,7 +69,7 @@ def connect_websocket():
 					if max_count != 0 and count_option == max_count:
 						description += f"{index+1}. {options[iindex]} : {count_option} ✅ "
 					else:
-						f"{index+1}. {options[iindex]} : {count_option}"
+						description += f"{index+1}. {options[iindex]} : {count_option}"
 				embed = discord.Embed(title = "__Google Results -１__", description = description, color = discord.Colour.random())
 				hook.send(embed = embed)
 
