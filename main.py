@@ -22,7 +22,7 @@ def show_not_on():
 			
 def show_active():
 	response_data = requests.get(main_url).json()
-	return response_data['active']
+	return response_data.get('active')
 
 def connect_websocket():
 	response_data = requests.get(main_url).json()
